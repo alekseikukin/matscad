@@ -1,9 +1,16 @@
-function translate_result = scadTranslate(x, y, z)
+function translate_result = scadTranslate(varargin)
 %scadTranslate Summary of this function goes here
 %   Detailed explanation goes here
-x = num2str_2(x);
-y = num2str_2(y);
-z = num2str_2(z);
+if max(size(varargin)) == 3
+    x = num2str_2(varargin{1});
+    y = num2str_2(varargin{2});
+    z = num2str_2(varargin{3});
+elseif max(size(varargin)) == 1
+    x = num2str_2(varargin{1}(1));
+    y = num2str_2(varargin{1}(2));
+    z = num2str_2(varargin{1}(3));
+else
+end
 translate_result = ['translate([' x ','  y ','  z ']){' newline];
 while ~isempty(varargin)
     translate_result = [translate_result varargin{1} newline];
