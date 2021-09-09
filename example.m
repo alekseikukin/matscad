@@ -16,6 +16,7 @@ rect_2 = scadRect(10, 10, 40,...
     'position', [5,5,-5],...
     'color', 'red');
 structure = scadDifference(rect_1, rect_2)
+structure = scadTranslate([5,5,5], structure)
 % fprintf(fileID,'%s \n', scadRect(20, 20, 30));
 fprintf(fileID,'%s \n', structure);
 
