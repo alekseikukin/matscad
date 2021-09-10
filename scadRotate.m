@@ -1,13 +1,13 @@
 function rotate_result = scadRotate(object, varargin)
 %scadrotate Summary of this function goes here
 %   Detailed explanation goes here
-if isvector(varargin{1})
+if isvector(varargin{1}) && max(size(varargin{1})) == 3
     formatSpec = string( [ '[ %d, %d, %d ]' ] );
     rotation_params = varargin{1};
     varargin(1) = [];
-elseif isvector(varargin{2}) && isdouble(varargin{1})
+elseif isvector(varargin{2}) && max(size(varargin{2})) == 3 && isvector(varargin{1}) && max(size(varargin{1})) == 1
     formatSpec = string( [ 'a = %d, v = [%d, %d, %d]' ] );
-    rotation_params = [varargin{1}, varargin{2}];
+    rotation_params = [varargin{1}(:), varargin{2}(1,:)];
     varargin(1:2) = [];
 else
 end
