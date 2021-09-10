@@ -11,25 +11,26 @@ file_name = 'example3.scad';
 % cd(path_cd)
 % StartOpenSCAD(file_name)
 
-ileID = fopen(file_name,'a');
-fclose(fileID);
-path_cd = cd;
+% ileID = fopen(file_name,'a');
+% fclose(fileID);
+% path_cd = cd;
 % cd('C:\Program Files\OpenSCAD\');
 % '-o' my_model_production.stl -D 'quality="production"' my_model.scad
-cmd = ['"C:\Program Files\OpenSCAD\openscad.exe" ' '-o ' '"' char(path_cd) '\' 'test.stl' '" ' '-D ' '"quality=""production""" ' '"' char(path_cd) '\' file_name '" '];
-status = system(cmd);
-cd(path_cd);
-
-fileID = fopen(file_name,'a');
-rect_1 = scadRect(20, 20, 30);
+% cmd = ['"C:\Program Files\OpenSCAD\openscad.exe" ' '-o ' '"' char(path_cd) '\' 'test.stl' '" ' '-D ' '"quality=""production""" ' '"' char(path_cd) '\' file_name '" '];
+% status = system(cmd);
+% cd(path_cd);
+% StartOpenSCAD(file_name);
+fileID = fopen(file_name,'w');
+rect_1 = scadRect(50, 7, 30);
 rect_2 = scadRect(10, 10, 40,...
     'position', [5,5,-5],...
     'color', 'red');
-structure = scadDifference(rect_1, rect_2)
-structure = scadTranslate([5,5,5], structure)
+structure = scadDifference(rect_1, rect_2);
+structure = scadTranslate([5,5,5], structure);
 % fprintf(fileID,'%s \n', scadRect(20, 20, 30));
 fprintf(fileID,'%s \n', structure);
 
 % fprintf(fileID,'%s \n', scadRect(20, 20, 30, varargin));
 % fprintf(fileID,'%s \n', 'translate([2,2,2])cube([10,10,10]);');
 fclose(fileID);
+SaveAsOpenSCAD(file_name)

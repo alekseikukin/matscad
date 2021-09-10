@@ -9,7 +9,7 @@ if size(correct_end) == 1
         string_1 = [string_1 correct_end];
         return
     end
-elseif size(correct_end) == 3 || size(correct_end) == 4
+elseif max(size(correct_end)) == 3 || max(size(correct_end)) == 4
     if correct_end == 4
         correct_end = correct_end(2:end);
     end

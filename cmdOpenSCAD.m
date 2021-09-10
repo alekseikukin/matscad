@@ -11,7 +11,7 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 path_cd = cd; % save current location
-cmd = ['"'  scadfolder ' openscad.exe" ' comand ]; % build command
+cmd = ['"'  scadfolder 'openscad.exe" ' comand ]; % build command
 status = system(cmd);  % run command
 cd(path_cd); % go back to first folder
 end
