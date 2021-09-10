@@ -195,20 +195,6 @@ solid OpenSCAD_Model
       vertex 20 10 35
     endloop
   endfacet
-  facet normal 0 -1 0
-    outer loop
-      vertex 10 20 5
-      vertex 20 20 35
-      vertex 10 20 35
-    endloop
-  endfacet
-  facet normal 0 -1 -0
-    outer loop
-      vertex 20 20 35
-      vertex 10 20 5
-      vertex 20 20 5
-    endloop
-  endfacet
   facet normal 0 1 -0
     outer loop
       vertex 20 10 5
@@ -221,6 +207,20 @@ solid OpenSCAD_Model
       vertex 10 10 35
       vertex 20 10 5
       vertex 10 10 5
+    endloop
+  endfacet
+  facet normal 0 -1 0
+    outer loop
+      vertex 10 20 5
+      vertex 20 20 35
+      vertex 10 20 35
+    endloop
+  endfacet
+  facet normal 0 -1 -0
+    outer loop
+      vertex 20 20 35
+      vertex 10 20 5
+      vertex 20 20 5
     endloop
   endfacet
 endsolid OpenSCAD_Model

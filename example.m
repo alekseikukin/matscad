@@ -14,9 +14,9 @@ file_name = 'example3.scad';
 ileID = fopen(file_name,'a');
 fclose(fileID);
 path_cd = cd;
-cd('C:\Program Files\OpenSCAD\');
+% cd('C:\Program Files\OpenSCAD\');
 % '-o' my_model_production.stl -D 'quality="production"' my_model.scad
-cmd = ['openscad.exe ' '-o ' '"' char(path_cd) '\' 'test.stl' '" ' '-D ' '"quality=""production""" ' '"' char(path_cd) '\' file_name '" '];
+cmd = ['"C:\Program Files\OpenSCAD\openscad.exe" ' '-o ' '"' char(path_cd) '\' 'test.stl' '" ' '-D ' '"quality=""production""" ' '"' char(path_cd) '\' file_name '" '];
 status = system(cmd);
 cd(path_cd);
 
