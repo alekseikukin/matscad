@@ -1,7 +1,8 @@
-function rectangle = scadRect(x_span, y_span, z_span, varargin)
+function rectangle = scadRect(xyz_span, varargin)
 %SCADADDRECT Summary of this function goes here
 %   Detailed explanation goes here
-position = [0,0,0];
+% add check is x_span, y_span, z_span string/char or number
+position = [];
 color = [];
 while ~isempty(varargin)
     switch lower(varargin{1})
@@ -13,21 +14,14 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-
-
-rectangle = [...
-    'translate([' num2str(position(1)) ', ' ...
-    num2str(position(2)) ', ' ...
-    num2str(position(3)) ...
-    '])'];
+formatSpec = string( [ '[ %d, %d, %d ]' ] );
+rectangle = (['cube(' char(compose(formatSpec, xyz_span)) ')' ';' ]);
 if ~isempty(color)
-    rectangle = [rectangle ' color( "' color '" )' ];
+    rectangle = scadColor(color, rectangle);
+end
+if ~isempty(position)
+  rectangle =  scadTranslate(position, rectangle);
 end
 
-% add check is x_span, y_span, z_span string/char or number
-rectangle = [ rectangle ' cube([' num2str(x_span) ', ' ...
-    num2str(y_span) ', ' ...
-    num2str(z_span) ...
-    ']) ' ';' ];
 end
 
