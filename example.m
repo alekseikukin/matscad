@@ -6,7 +6,8 @@ structure = scadTranslate([5,5,5], rect_2);
 structure = scadRotate(structure, 45, [5, 5, 5]); % rotate around axis [5,5,5] for 45deg
 structure = scadHull(char(structure), char(rect_1)); 
 structure = scadRotate(structure, [45, -45, 45]) ; % rotate around central point [x, y, z]
-
+sphere = scadSphere(10, 'fn', 50, 'position', [5,0,20])
+structure = scadUnion(structure, sphere)
 disp(structure)
 SaveSCAD(file_name, structure);
 SaveAsOpenSCAD(file_name);

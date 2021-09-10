@@ -19,13 +19,15 @@ size = 'd';
 param = '';
 while ~isempty(varargin)
     switch lower(varargin{1})
-        case '$fa'
+        case 'fa'
             param = [param ' $fa = ' num2str(varargin{2}) ','];
             varargin(1:2) = [];
-        case '$fs'
+        case 'fs'
             param = [param ' $fs = ' num2str(varargin{2}) ',']   ;
-        case '$fn'
+            varargin(1:2) = [];
+        case 'fn'
             param = [param ' $fn = ' num2str(varargin{2}) ',']  ;
+            varargin(1:2) = [];
         case 'position'
             position = varargin{2};
             varargin(1:2) = [];
@@ -39,6 +41,7 @@ while ~isempty(varargin)
             size = 'd';
             varargin(1) = [];
         otherwise
+            error(['scadSphere: unknown paramiter - ' varargin{1}])
     end
 end
 if ~isempty(param)
