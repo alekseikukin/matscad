@@ -1,6 +1,7 @@
 function status = StartOpenSCAD(file_name, varargin)
 %STARTOPENSCAD Summary of this function goes here
 %   Detailed explanation goes here
+file_name = FileExtController(file_name, 'scad');
 fileID = fopen(file_name,'a');
 fclose(fileID);
 path_cd = cd;
