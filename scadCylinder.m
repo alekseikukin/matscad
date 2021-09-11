@@ -30,6 +30,9 @@ while ~isempty(varargin)
         case 'fs'
             param = [param ' $fs = ' num2str(varargin{2}) ',']   ;
             varargin(1:2) = [];
+            case 'fn'
+            param = [param ' $fn = ' num2str(varargin{2}) ',']   ;
+            varargin(1:2) = [];
         case 'd2'
             d2 = varargin{2};
             size2 = 'd';
@@ -64,7 +67,7 @@ end
 cylinder = (['cylinder(' size '1=' num2str(d) ', '...
     size2 '2=' num2str(d2) ...
     ', h=' num2str(h)...
-    ', center='  num2str(center)...
+    ', center='  boolean2string(center)...
     param ')' ';' ]);
 if ~isempty(color)
     cylinder = scadColor(color, cylinder);

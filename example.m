@@ -12,9 +12,9 @@ for i =1:2
 sphere = scadSphere(7, 'fn', 35, 'position', [rand*20-10,rand*20-10,rand*20])
 structure = scadDifference(structure, sphere)
 end
-cilinder = scadCylinder(50, 5,'d2', 2 ,'center', true,'color', 'red');
-cilinder = scadRotate(cilinder, [0, 30, 0]) ; % rotate around central point [x, y, z]
-structure = scadUnion(structure, cilinder)
+cilinder = scadCylinder(70, 5,'d2', 2 ,'center', true,'color', 'red');
+cilinder = scadRotate(cilinder, [0, 10, 30]) ; % rotate around central point [x, y, z]
+structure = scadDifference(structure, cilinder)
 
 disp(structure)
 SaveSCAD(file_name, structure);
