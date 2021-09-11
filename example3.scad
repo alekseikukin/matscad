@@ -1,3 +1,4 @@
+union(){
 difference(){
 difference(){
 union(){
@@ -19,11 +20,17 @@ translate([ 5, 0, 20 ]){
 sphere(d=10,  $fn = 35);
 }
 }
-translate([ 5.377085e+00, -6.654929e+00, 1.723961e+01 ]){
+translate([ -7.885811e+00, -7.159178e+00, 3.329209e+00 ]){
 sphere(d=7,  $fn = 35);
 }
 }
-translate([ 9.797443e+00, 2.884691e-01, 1.768562e+01 ]){
+translate([ 2.419173e+00, 1.474195e+00, 1.041558e+00 ]){
 sphere(d=7,  $fn = 35);
+}
+}
+rotate([ 0, 30, 0 ]){
+color("red"){
+cylinder(d1=5, d2=2, h=50, center=1);
+}
 }
 } 
