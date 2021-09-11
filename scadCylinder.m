@@ -1,6 +1,5 @@
 function cylinder = scadCylinder(h, d, varargin)
-
-% cylinder(h = height, r1 = BottomRadius, r2 = TopRadius, center = true/false);
+% scadCylinder - Return string for OpenScad with cylinder discription
 % Parameters
 % h : height of the cylinder or cone
 % r  : radius of cylinder. r1 = r2 = r.
