@@ -12,10 +12,13 @@ function square = scadSquare(size1, varargin)
 % true, square is centered at (0,0)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 center = true;
+position = [];
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'center'
             center = varargin{2};
+        case 'position'
+            position = varargin{2};
         otherwise
             error(['scadSquare: unknown paramiter - ' varargin{1}])
     end
@@ -28,4 +31,7 @@ else
 end
 square = ['square(size = ' size1 ','...
     ' center =' boolean2string(center) ');' ];
+if ~isempty(position)
+    square =  scadTranslate(position, square);
+end
 end
