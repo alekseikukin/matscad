@@ -5,37 +5,49 @@ function polyhedron = scadPolyhedron(points, faces , varargin)
 % series of flat surfaces.
 %
 % Parameters
-% 
+%
 % points Vector of 3d points or vertices. Each point is in turn a vector,
 % [x,y,z], of its coordinates. Points may be defined in any order. N points
 % are referenced, in the order defined, as 0 to N-1.
-% 
+%
 % triangles [Deprecated: triangles will be removed in future releases. Use
 % faces parameter instead] Vector of faces that collectively enclose the
 % solid. Each face is a vector containing the indices (0 based) of 3 points
 % from the points vector.
-% 
+%
 % faces [Note: Requires version 2014.03] Vector of faces that collectively
 % enclose the solid. Each face is a vector containing the indices (0 based)
 % of 3 or more points from the points vector. Faces may be defined in any
 % order. Define enough faces to fully enclose the solid, with no overlap.
 % If points that describe a single face are not on the same plane, the face
 % is automatically split into triangles as needed.
-% 
+%
 % convexity Integer. The convexity parameter specifies the maximum number
 % of faces a ray intersecting the object might penetrate. This parameter is
 % needed only for correct display of the object in OpenCSG preview mode. It
 % has no effect on the polyhedron rendering. For display problems, setting
 % it to 10 should work fine for most cases.
-% 
+%
 position = [];
 color = [];
 faces_type = 'faces';
-formatSpec = string( [ '[ %d, %d, %d ], ' ] );
+formatSpec = string( [ '[ %d, %d, %d ],' ] );
 points = compose(formatSpec, points);
-faces = compose(formatSpec, faces);
-points(end) = '';
-faces(end) = '';
+faces2 = '';
+for i = faces(1:end)
+    i = i{1};
+    formatSpec2 = '[';
+    for l = 1:max(size(i))
+        formatSpec2 = [formatSpec2 ' %d,'];
+    end
+    formatSpec2(end) = '';
+    formatSpec2 = [formatSpec2 ' ],'];
+    faces2 = [faces2 compose(formatSpec2, i)];
+end
+faces2 = [faces2{:}];
+points = [points{:}];
+faces2(end) = [];
+points(end) = [];
 param = '';
 while ~isempty(varargin)
     switch lower(varargin{1})
@@ -45,8 +57,8 @@ while ~isempty(varargin)
         case 'color'
             color = varargin{2};
             varargin(1:2) = [];
-            case 'convexity '
-            param =[ 'convexity = ' varargin{2}];
+        case 'convexity '
+            param =[newline ', convexity = ' varargin{2}];
             varargin(1:2) = [];
         case 'triangles'
             faces_type = 'triangles';
@@ -59,8 +71,8 @@ while ~isempty(varargin)
     end
 end
 polyhedron = (['polyhedron('...
-    'points = [' points '], '...
-    faces_type ' = [ ' faces '],' ...
+    'points = [' char(points) '], ' newline...
+    faces_type ' = [ ' char(faces2) ']' ...
     param ' );' ]);
 if ~isempty(color)
     polyhedron = scadColor(color, polyhedron);
