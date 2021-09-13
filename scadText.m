@@ -47,19 +47,19 @@ while ~isempty(varargin)
         case 'size'
             paramiters =[paramiters ', ' 'size = ' num2str(varargin{2})];
         case 'font'
-            paramiters =[paramiters ', ' 'font = ' char(varargin{2})];
+            paramiters =[paramiters ', ' 'font = ' '"' char(varargin{2}) '"'];
         case 'halign'
-            paramiters =[paramiters ', ' 'halign = ' char(varargin{2})];
+            paramiters =[paramiters ', ' 'halign = ' '"' char(varargin{2}) '"'];
         case 'valign'
-            paramiters =[paramiters ', ' 'valign = ' char(varargin{2})];
+            paramiters =[paramiters ', ' 'valign = ' '"' char(varargin{2}) '"'];
         case 'spacing'
             paramiters =[paramiters ', ' 'spacing = ' num2str(varargin{2})];
         case 'direction'
-            paramiters =[paramiters ', ' 'direction = ' char(varargin{2})];
+            paramiters =[paramiters ', ' 'direction = ' '"' char(varargin{2}) '"'];
         case 'language'
-            paramiters =[paramiters ', ' 'language = ' char(varargin{2})];
+            paramiters =[paramiters ', ' 'language = ' '"' char(varargin{2}) '"'];
         case 'script'
-            paramiters =[paramiters ', ' '$script = ' char(varargin{2})];
+            paramiters =[paramiters ', ' '$script = ' '"' char(varargin{2}) '"'];
         case 'fn'
             paramiters =[paramiters ', ' '$fn = ' num2str(varargin{2})];
         otherwise
@@ -67,7 +67,7 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-text = ['text(' text1  paramiters ');' ];
+text = ['text( "' text1 '"'  paramiters ');' ];
 if ~isempty(position)
     text =  scadTranslate(position, text);
 end
