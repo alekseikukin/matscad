@@ -5,22 +5,44 @@ function polygon = scadPolygon(points, varargin)
 %irregular shapes with both concave and convex edges. In addition it can
 %place holes within that shape.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% parameters:
-% size
-% single value, polygon with both sides this length
-% 2 value array [x,y], rectangle with dimensions x and y
-% center
-% false (default), 1st (positive) quadrant, one corner at (0,0)
-% true, polygon is centered at (0,0)
+%
+% points - The list of x,y points of the polygon. : A array n x 2. Note:
+% points.
+%
+% paths - default. cell array of vectors. If no path is specified, all
+% points are used in the order listed. single vector The order to traverse
+% the points. Uses indices from 0 to n-1. May be in a different order and
+% use all or part, of the points listed. multiple vectors Creates primary
+% and secondary shapes. Secondary shapes are subtracted from the primary
+% shape (like difference). Secondary shapes may be wholly or partially
+% within the primary shape. A closed shape is created by returning from the
+% last point specified to the first.
+%
+% convexity - Integer number of "inward" curves, ie. expected path
+% crossings of an arbitrary line through the polygon. See below.
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 position = [];
-formatSpec = '[ %d, %d, %d ],';
+paramiters = '';
+formatSpec = '[ %d, %d ],';
 while ~isempty(varargin)
+    disp(varargin{1})
     switch lower(varargin{1})
         case 'paths'
-            paramiters =[paramiters ...
-                ', ' 'paths = '...
-                ['[' char(strjoin(compose('%d', varargin{2}), ',')) ']']];
+            paths = [', ' 'paths = ['];
+            for i = varargin{2}(1:end)
+                i = i{1};
+                formatSpec2 = '[';
+                for l = 1:max(size(i))
+                    formatSpec2 = [formatSpec2 ' %d,'];
+                end
+                formatSpec2(end) = '';
+                formatSpec2 = [formatSpec2 ' ],'];
+                paths = [paths compose(formatSpec2, i)];
+            end
+            paths = [paths{:}];
+            paths = [paths ']'];
+            paramiters = [paramiters paths]
         case 'convexity '
             paramiters =[paramiters ', ' 'convexity = ' num2str(varargin{2})];
         case 'position'
