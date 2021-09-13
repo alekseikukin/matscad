@@ -1,1 +1,1 @@
-square(size = [1,50], center =true); 
+circle(d = 50, $fn = 0, $fa = 12, $fs = 2); 

@@ -30,6 +30,6 @@ faces = {...
 polyhedron = scadPolyhedron(points, faces, 'position', [30,0,0], 'color', 'blue' );
 structure = scadUnion(structure, polyhedron);
 structure = scadColor('green', structure);
-structure = scadSquare([1,50])
+structure = scadCircle(50, 'd', 'fn', 0, 'fa', 12, 'fs', 2)
 SaveSCAD(file_name, structure);
 SaveAsOpenSCAD(file_name);
