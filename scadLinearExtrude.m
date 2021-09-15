@@ -1,4 +1,4 @@
-function square = scadLinearExtrude(object, height, varargin)
+function linear_extrude = scadLinearExtrude(object, height, varargin)
 %scadLinearExtrude -
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % parameters:
@@ -31,14 +31,14 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 
-square = ['linear_extrude(size = ' num2str(height) ...
+linear_extrude = ['linear_extrude(size = ' num2str(height) ...
     param '){' ];
-square = [square char(object) newline];
-square = ([square '}' ]);
+linear_extrude = [linear_extrude char(object) newline];
+linear_extrude = ([linear_extrude '}' ]);
 if ~isempty(position)
-    square =  scadTranslate(position, square);
+    linear_extrude =  scadTranslate(position, linear_extrude);
 end
 if ~isempty(color)
-    square =  scadColor(color, square);
+    linear_extrude =  scadColor(color, linear_extrude);
 end
 end
