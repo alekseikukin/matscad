@@ -42,8 +42,8 @@ a4 = [98,10; 115,40; 85,40; 85,10];   % hole 4
 b4 = [14,15,16,17];
 a  = cat(1, a0,a1,a2,a3,a4);
 b  = {b0,b1,b2,b3,b4};
-poligon = scadPolygon(a, 'paths', b)
-
+poligon = scadPolygon(a, 'paths', b);
+structure = scadLinearExtrude(poligon, 20);
 % structure = scadText('text',...
 %     'font', "Liberation Sans:style=Bold Italic",...
 %     'size', 25,...

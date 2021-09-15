@@ -23,7 +23,7 @@ function polygon = scadPolygon(points, varargin)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 position = [];
-paramiters = '';
+parameters = '';
 formatSpec = '[ %d, %d ],';
 while ~isempty(varargin)
     disp(varargin{1})
@@ -42,9 +42,9 @@ while ~isempty(varargin)
             end
             paths = [paths{:}];
             paths = [paths ']'];
-            paramiters = [paramiters paths]
+            parameters = [parameters paths];
         case 'convexity '
-            paramiters =[paramiters ', ' 'convexity = ' num2str(varargin{2})];
+            parameters =[parameters ', ' 'convexity = ' num2str(varargin{2})];
         case 'position'
             position = varargin{2};
         otherwise
@@ -56,7 +56,7 @@ points = compose(formatSpec, points);
 points = [points{:}];
 points(end) = [];
 polygon = ['polygon(points = [' points ']'...
-    paramiters ');' ];
+    parameters ');' ];
 if ~isempty(position)
     polygon =  scadTranslate(position, polygon);
 end
