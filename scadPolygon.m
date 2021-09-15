@@ -26,7 +26,6 @@ position = [];
 parameters = '';
 formatSpec = '[ %d, %d ],';
 while ~isempty(varargin)
-    disp(varargin{1})
     switch lower(varargin{1})
         case 'paths'
             paths = [', ' 'paths = ['];
@@ -41,6 +40,7 @@ while ~isempty(varargin)
                 paths = [paths compose(formatSpec2, i)];
             end
             paths = [paths{:}];
+            paths(end) = [];
             paths = [paths ']'];
             parameters = [parameters paths];
         case 'convexity '
