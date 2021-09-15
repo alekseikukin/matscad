@@ -18,7 +18,8 @@ while ~isempty(varargin)
         case 'slices'
             param = [param ', slices = ' num2str(varargin{2})];
         case 'scale'
-            param = [param ', scale = [' strjoin( num2str(varargin{2}), ',' ) ']' ];
+            formatSpec = '%d';
+            param = [param ', scale = [' strrep(num2str(varargin{2}),'  ', ', ' ) ']' ];
         case 'fn'
             param = [param ', $fn = ' num2str(varargin{2})];
         case 'position'
