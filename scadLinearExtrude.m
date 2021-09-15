@@ -10,17 +10,17 @@ color = [];
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'center'
-            param = [param ' center= ' boolean2string(varargin{2}) ','];
+            param = [param ', center = ' boolean2string(varargin{2})];
         case 'convexity'
-            param = [param ' convexity= ' num2str(varargin{2}) ','];
+            param = [param ', convexity = ' num2str(varargin{2})];
         case 'twist'
-            param = [param ' twist= ' num2str(varargin{2}) ','];
+            param = [param ', twist = ' num2str(varargin{2})];
         case 'slices'
-            param = [param ' slices= ' num2str(varargin{2}) ','];
+            param = [param ', slices = ' num2str(varargin{2})];
         case 'scale'
-            param = [param ' scale= ' num2str(varargin{2}) ','];
+            param = [param ', scale = [' strjoin( num2str(varargin{2}), ',' ) ']' ];
         case 'fn'
-            param = [param ' $fn= ' num2str(varargin{2}) ','];
+            param = [param ', $fn = ' num2str(varargin{2})];
         case 'position'
             position = varargin{2};
         case 'color'
