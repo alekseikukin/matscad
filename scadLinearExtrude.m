@@ -1,8 +1,31 @@
 function linear_extrude = scadLinearExtrude(object, height, varargin)
-%scadLinearExtrude -
+%scadLinearExtrude -Linear Extrusion is a operation that takes a 2D object
+%as input and generates a 3D object as a result.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % parameters:
-% linear_extrude(height = 5, center = true, convexity = 10, twist = -fanrot, slices = 20, scale = 1.0, $fn = 16)
+% 
+% object - 2D object for extrudion
+% 
+% height - distance
+% 
+% center - if true, center placed in center of structure
+% 
+% convexity -  If the extrusion fails for a non-trival 2D shape, try
+% setting the convexity parameter (the default is not 10, but 10 is a
+% "good" value to try)
+% 
+% twist - Twist is the number of degrees of through which the shape is
+% extruded. Setting the parameter twist = 360 extrudes through one
+% revolution. The twist direction follows the left hand rule.
+% 
+% slices -  defines the number of intermediate points along the Z axis of
+% the extrusion
+% 
+% scale - Scales the 2D shape by this value over the height of the
+% extrusion. Scale can be a scalar or a vector 1 x 2
+% 
+% fn - number of fragments
+% 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 position = [];
 param = '';
