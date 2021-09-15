@@ -4,7 +4,6 @@ function square = scadLinearExtrude(height, varargin)
 % parameters:
 % linear_extrude(height = 5, center = true, convexity = 10, twist = -fanrot, slices = 20, scale = 1.0, $fn = 16)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-center = true;
 position = [];
 param = '';
 color = [];
