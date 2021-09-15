@@ -1,4 +1,4 @@
-function square = scadLinearExtrude(height, varargin)
+function square = scadLinearExtrude(object, height, varargin)
 %scadLinearExtrude -
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % parameters:
@@ -32,7 +32,9 @@ while ~isempty(varargin)
 end
 
 square = ['linear_extrude(size = ' num2str(height) ...
-    param ');' ];
+    param '){' ];
+square = [square char(object) newline];
+square = ([square '}' ]);
 if ~isempty(position)
     square =  scadTranslate(position, square);
 end
