@@ -35,12 +35,7 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-if max(size(angles) == 1)
-   angles = num2str(angles);
-else
-    angles = ['[' strjoin(cellstr(num2str(angles(:))), ', ') ']'];
-end
-rotate_extrude = ['rotate_extrude( angle  = ' angles '' param '){' newline];
+rotate_extrude = ['rotate_extrude( angle  = ' num2str(angles) '' param '){' newline];
 rotate_extrude = [rotate_extrude char(object) newline];
 rotate_extrude = ([rotate_extrude '}' ]);
 end
