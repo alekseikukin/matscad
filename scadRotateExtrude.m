@@ -1,4 +1,4 @@
-function rotate_extrude = scadRotateExtrude(object, varargin)
+function rotate_extrude = scadRotateExtrude(object, angles , varargin)
 %scadRotateExtrude -
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters:
@@ -35,7 +35,7 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-rotate_extrude = ['rotate_extrude( angle  = [' strjoin(cellstr(num2str(varargin{2}(:))), ', ') ']' param '){' newline];
+rotate_extrude = ['rotate_extrude( angle  = [' strjoin(cellstr(num2str(angles(:))), ', ') ']' param '){' newline];
 rotate_extrude = [rotate_extrude char(object) newline];
 rotate_extrude = ([rotate_extrude '}' ]);
 end
