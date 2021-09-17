@@ -1,4 +1,4 @@
-function object = scadLinearExtrude(object, height, varargin)
+function object = scadLinearExtrude(height, object, varargin)
 %scadLinearExtrude -Linear Extrusion is a operation that takes a 2D object
 %as input and generates a 3D object as a result.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
