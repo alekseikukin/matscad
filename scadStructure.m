@@ -7,17 +7,13 @@ classdef scadStructure
     properties
     end
     methods % initialization methods
-        function obj = scadStructure(string, varargin)
+        function obj = scadStructure(varargin)
             %scadStructure -
-            if isa(string,scadStructure)
-                obj.structure = string.structure;
+            if ~isempty(varargin) && isa(varargin{1}, scadStructure)
+                obj.structure = varargin{1}.structure;
+                varargin(1) = [];
             else
                 obj.structure = '';
-                if ischar(string) || isstring(string)
-                    varargin = {string; varargin{:}};
-                else
-                    disp('scadStructure: first paramiter must be a string or a scadStructure');
-                end
             end
             while ~isempty(varargin)
                 switch lower(varargin{1})
