@@ -1,23 +1,33 @@
-function mirror_result = scadMirror(varargin)
-%scadMirror Summary of this function goes here
-%   Detailed explanation goes here
-if max(size(varargin)) == 4
-    x = num2str_2(varargin{1});
-    y = num2str_2(varargin{2});
-    z = num2str_2(varargin{3});
-    varargin(1:3) = [];
-elseif max(size(varargin)) == 2
-    x = num2str_2(varargin{1}(1));
-    y = num2str_2(varargin{1}(2));
-    z = num2str_2(varargin{1}(3));
-    varargin(1) = [];
-else
-end
-mirror_result = ['mirror([' x ','  y ','  z ']){' newline];
+function object = scadMirror(surface, object, varargin)
+%scadMirror - Mirrors the child element on a plane through the origin. The
+%argument to mirror() is the normal vector of a plane intersecting the
+%origin through which to mirror the object.
+%
+% surface  - mirror's surface (numerical vector 1 x 3 [x, y, z])
+% 
+position = [];
+color = [];
 while ~isempty(varargin)
-    mirror_result = [mirror_result varargin{1} newline];
-    varargin(1) = [];
+    switch lower(varargin{1})
+        case 'position'
+            position = varargin{2};
+        case 'color'
+            color = varargin{2};
+        otherwise
+    end
+    varargin(1:2) = [];
 end
+formatSpec = '[ %d, %d, %d ]';
+surface = compose(formatSpec, surface);
+mirror_result = ['mirror(' surface{1} '){' newline];
+mirror_result = [mirror_result char(object.structure) newline];
 mirror_result = [mirror_result '}' ];
+object.structure  = mirror_result;
+if ~isempty(color)
+    object = scadColor(color, object);
+end
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
 end
 
