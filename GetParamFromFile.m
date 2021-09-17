@@ -1,11 +1,15 @@
 function parameter = GetParamFromFile(parameter_name, varargin)
 %UNTITLED11 Summary of this function goes here
 %   Detailed explanation goes here
-file_name = 'ParamitersOpenSCAD';
+current_folder = erase(which('SetOpenSCAD'), 'SetOpenSCAD.m');
+file_name = [current_folder 'ParamitersOpenSCAD'];
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'file_name'
             file_name = varargin{2};
+            if contains(file_name,':')
+                file_name = [current_folder file_name];
+            end
         otherwise
     end
     varargin(1:2) = [];
