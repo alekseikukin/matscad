@@ -128,7 +128,7 @@ classdef scadStructure
         end
     end
     methods % files functions
-        function Save(obj, varargin)
+        function obj = Save(obj, varargin)
             varargin2 = {};
             while ~isempty(varargin)
                 switch lower(varargin{1})
@@ -146,13 +146,14 @@ classdef scadStructure
             end
             SaveSCAD(obj.file_name, obj, varargin2{:})
         end
-        function SaveAs(obj, varargin)
+        function obj = SaveAs(obj, varargin)
             varargin2 = {};
-            sa_ile_name = obj.file_name;
+            obj.Save();
+            sa_file_name = obj.file_name;
             while ~isempty(varargin)
                 switch lower(varargin{1})
                     case 'file_name'
-                        sa_ile_name = varargin{2};
+                        sa_file_name = varargin{2};
                         varargin(1:2) = [];
                     otherwise
                         varargin2{end + 1} = varargin{1};
@@ -160,9 +161,9 @@ classdef scadStructure
                         varargin(1:2) = [];
                 end
             end
-            SaveAsOpenSCAD(sa_ile_name, varargin2{:})
+            SaveAsOpenSCAD(sa_file_name, varargin2{:})
         end
-        function OpenGUI(obj, varargin)
+        function obj = OpenGUI(obj, varargin)
             obj.Save();
             StartOpenSCAD(obj.file_name, varargin{:});
         end
