@@ -17,7 +17,8 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 projection_result = ['projection(' param '){' newline];
-projection_result = [projection_result char(object) newline];
+projection_result = [projection_result char(object.structure) newline];
 projection_result = ([projection_result '}' ]);
+object.structure = projection_result;
 end
 
