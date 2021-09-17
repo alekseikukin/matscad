@@ -1,6 +1,8 @@
 function status = SaveAsOpenSCAD(scad_file_name, varargin)
-%SaveAsOpenSCAD Summary of this function goes here
-%   Detailed explanation goes here
+%SaveAsOpenSCAD  - output specified file instead of running the GUI, the
+%file extension specifies the type: stl, off, amf, 3mf, csg, dxf, svg, png,
+%echo, ast, term, nef3, nefdbg
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 output_file_extention = 'stl';
 scad_file_name = FileExtController(scad_file_name, 'scad');
 output_filename = scad_file_name;
