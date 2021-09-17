@@ -1,4 +1,4 @@
-function text = scadText(text1, varargin)
+function object = scadText(text1, varargin)
 %scadText - The text module creates text as a 2D geometric object, using
 %fonts installed on the local system or provided as separate font file.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -71,4 +71,6 @@ text = ['text( "' text1 '"'  paramiters ');' ];
 if ~isempty(position)
     text =  scadTranslate(position, text);
 end
+object = scadStructure();
+object.structure = text;
 end
