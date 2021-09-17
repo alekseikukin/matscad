@@ -4,12 +4,10 @@ classdef scadStructure
         structure % string with descriprion of structure in openSCAD
     end
     properties
-        path2SCAD % openSCAD Folder path
     end
     methods
         function obj = scadStructure(string, varargin)
             %scadStructure -            
-            obj.path2SCAD = 'C:\Program Files\OpenSCAD\';
             if isa(string,scadStructure)
                 obj.structure = string.structure;
             else
@@ -23,7 +21,6 @@ classdef scadStructure
             while ~isempty(varargin)
                 switch lower(varargin{1})
                     case 'path'
-                        obj.path2SCAD  = varargin{2};
                     otherwise
                 end
                 varargin(1:2) = [];

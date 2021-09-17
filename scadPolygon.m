@@ -48,8 +48,6 @@ while ~isempty(varargin)
             parameters =[parameters ', ' 'convexity = ' num2str(varargin{2})];
         case 'position'
             position = varargin{2};
-        case 'path2scad'
-            path2SCAS = varargin{2};
         otherwise
             error(['scadPolygon: unknown paramiter - ' varargin{1}])
     end
@@ -63,10 +61,6 @@ polygon = ['polygon(points = [' points ']'...
 if ~isempty(position)
     polygon =  scadTranslate(position, polygon);
 end
-if isempty(path2SCAS)
-    object = scadStructure('path', path2SCAS);
-else
-    object = scadStructure();
-end
+object = scadStructure();
 object.structure = polygon;
 end
