@@ -59,9 +59,9 @@ else
     size1 = ['[' char(strjoin(compose('%d', size1), ',')) ']'];
 end
 circle = ['circle(' size_param ' = ' size1  paramiters ');' ];
-if ~isempty(position)
-    circle =  scadTranslate(position, circle);
-end
 object = scadStructure();
 object.structure = circle;
+if ~isempty(position)
+    object =  scadTranslate(object, circle);
+end
 end
