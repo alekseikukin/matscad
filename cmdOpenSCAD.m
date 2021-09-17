@@ -1,7 +1,6 @@
 function status = cmdOpenSCAD(comand, varargin)
-%STARTOPENSCAD Summary of this function goes here
-%   Detailed explanation goes here
-scadfolder = 'C:\Program Files\OpenSCAD\';
+%cmdOpenSCAD  - 
+scadfolder = GetParamFromFile('path');
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'scadfolder'
