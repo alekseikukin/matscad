@@ -58,9 +58,9 @@ points = [points{:}];
 points(end) = [];
 polygon = ['polygon(points = [' points ']'...
     parameters ');' ];
-if ~isempty(position)
-    polygon =  scadTranslate(position, polygon);
-end
 object = scadStructure();
 object.structure = polygon;
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
 end
