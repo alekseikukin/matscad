@@ -1,5 +1,8 @@
 function status = cmdOpenSCAD(comand, varargin)
-%cmdOpenSCAD  - 
+%cmdOpenSCAD  - send a comand to openSCAD
+%see list of comands here: 
+% https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 scadfolder = GetParamFromFile('path');
 while ~isempty(varargin)
     switch lower(varargin{1})
