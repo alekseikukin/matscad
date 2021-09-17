@@ -68,9 +68,9 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 text = ['text( "' text1 '"'  paramiters ');' ];
-if ~isempty(position)
-    text =  scadTranslate(position, text);
-end
 object = scadStructure();
 object.structure = text;
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
 end
