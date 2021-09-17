@@ -19,7 +19,6 @@ classdef scadStructure
                     disp('scadStructure: first paramiter must be a string or a scadStructure');
                 end
             end
-            file_name = [];
             while ~isempty(varargin)
                 switch lower(varargin{1})
                     case 'file_name'
