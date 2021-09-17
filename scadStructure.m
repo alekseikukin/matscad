@@ -1,6 +1,6 @@
 classdef scadStructure
     %scadStructure
-    properties
+    properties (Access = public)
         structure % string with descriprion of structure in openSCAD
         file_name % file name to save a structure
     end

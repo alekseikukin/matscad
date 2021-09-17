@@ -6,12 +6,12 @@ if isempty(varargin)
     error("scadunion: There must be at least 2 components")
 else
     union_result = varargin{1};
-    union_result.structure = ['union(){' newline];
+    union_result.structure = char(['union(){' newline]);
     while ~isempty(varargin)
         union_result.structure = [char(union_result.structure) char(varargin{1}.structure) newline];
         varargin(1) = [];
     end
-    union_result.structure = [union_result '}' ];
+    union_result.structure = char([union_result.structure '}']);
 end
 end
 
