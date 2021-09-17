@@ -1,4 +1,4 @@
-function sphere = scadSphere(diam, varargin)
+function object = scadSphere(diam, varargin)
 
 %Parameters
 % r Radius. This is the radius of the sphere. The resolution of the sphere
@@ -49,12 +49,13 @@ if ~isempty(param)
     param(end) = [];
 end
 sphere = (['sphere(' size '=' num2str(diam) param ')' ';' ]);
+object = scadStructure();
+object.structure  = sphere;
 if ~isempty(color)
-    sphere = scadColor(color, sphere);
+    object = scadColor(color, object);
 end
 if ~isempty(position)
-    sphere =  scadTranslate(position, sphere);
+    object =  scadTranslate(position, object);
 end
-
 end
 
