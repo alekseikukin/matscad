@@ -5,6 +5,7 @@ function object = scadMirror(surface, object, varargin)
 %
 % surface  - mirror's surface (numerical vector 1 x 3 [x, y, z])
 % 
+% object - scadStructure
 position = [];
 color = [];
 while ~isempty(varargin)
