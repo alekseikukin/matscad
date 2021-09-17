@@ -1,5 +1,5 @@
 function object = scadResize(multiplicators, object, varargin)
-%scadResize - 
+%scadResize -
 
 position = [];
 color = [];
@@ -17,10 +17,10 @@ while ~isempty(varargin)
             elseif max(size(auto1)) == 3
                 param = [', auto = ' boolean2string(auto1)];
             else
-                error(['scadResize: unknown parameter ' char(string(varargin{1}))])
+                error('scadResize: "auto" must contain 1 or 3 parameters')
             end
         otherwise
-            error('scadResize: "auto" must contain 1 or 3 parameters')
+            error(['scadResize: unknown parameter ' char(string(varargin{1}))])
     end
     varargin(1:2) = [];
 end
