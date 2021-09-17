@@ -1,4 +1,4 @@
-function polyhedron = scadPolyhedron(points, faces , varargin)
+function object = scadPolyhedron(points, faces , varargin)
 % scadPolyhedron - A polyhedron is the most general 3D primitive solid. It
 % can be used to create any regular or irregular shape including those with
 % concave as well as convex features. Curved surfaces are approximated by a
@@ -74,11 +74,13 @@ polyhedron = (['polyhedron('...
     'points = [' char(points) '], ' newline...
     faces_type ' = [ ' char(faces2) ']' ...
     param ' );' ]);
+object = scadStructure();
+object.structure = polyhedron;
 if ~isempty(color)
-    polyhedron = scadColor(color, polyhedron);
+    object = scadColor(color, object);
 end
 if ~isempty(position)
-    polyhedron =  scadTranslate(position, polyhedron);
+    object =  scadTranslate(position, object);
 end
 
 end
