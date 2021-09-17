@@ -1,5 +1,6 @@
 function object = scadRotateExtrude(object, angles , varargin)
-%scadRotateExtrude -
+%scadRotateExtrude - Rotational extrusion spins a 2D shape around the
+%Z-axis to form a solid which has rotational symmetry.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters:
 % object - scadStructure
