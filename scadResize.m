@@ -1,5 +1,12 @@
 function object = scadResize(multiplicators, object, varargin)
-%scadResize -
+%scadResize - Modifies the size of the child object to match the given x,y,
+%and z.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Parameters:
+% multiplicators - numerical array 1 x 3 of multiplicators [x, y, z]
+% object - scadStructure
+% 
+
 
 position = [];
 color = [];
