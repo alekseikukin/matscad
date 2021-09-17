@@ -23,16 +23,16 @@ function object = scadCircle(size1, varargin)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 size_param = 'r';
-center = true;
 position = [];
+color = [];
 paramiters = '';
 while ~isempty(varargin)
     switch lower(varargin{1})
-        case 'center'
-            center = varargin{2};
-            varargin(1:2) = [];
         case 'position'
             position = varargin{2};
+            varargin(1:2) = [];
+        case 'color'
+            color = varargin{2};
             varargin(1:2) = [];
         case 'fa'
             paramiters =[paramiters ', ' '$fa = ' num2str(varargin{2})];
@@ -61,6 +61,9 @@ end
 circle = ['circle(' size_param ' = ' size1  paramiters ');' ];
 object = scadStructure();
 object.structure = circle;
+if ~isempty(color)
+    object = scadColor(color, object);
+end
 if ~isempty(position)
     object =  scadTranslate(object, circle);
 end
