@@ -3,13 +3,13 @@ function object = scadImport(file_name,varargin)
 %file extension is used to determine which type.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % 3D formats:
-% STL (both ASCII and Binary)
+% STL 
 % OFF
-% AMF [Note: Requires version 2019.05]
-% 3MF [Note: Requires version 2019.05]
+% AMF 
+% 3MF 
 % 2D formats:
 % DXF
-% SVG [Note: Requires version 2019.05]
+% SVG 
 % Other:
 % CSG can be imported using include<> or loaded like an SCAD file, PNG can
 % be imported using surface()
