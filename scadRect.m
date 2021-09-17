@@ -1,7 +1,5 @@
 function object = scadRect(xyz_span, varargin)
-%SCADADDRECT Summary of this function goes here
-%   Detailed explanation goes here
-% add check is x_span, y_span, z_span string/char or number
+%scadRect - create rectangle with edges [x, y, z] = xyz_span;
 position = [];
 color = [];
 while ~isempty(varargin)
