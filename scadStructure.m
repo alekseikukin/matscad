@@ -1,16 +1,16 @@
-classdef scadStructure
+classdef scadStructure < handle
     %scadStructure
-    properties (Access = public)
+    properties (Access = public,Dependent = false)
         structure % string with descriprion of structure in openSCAD
         file_name % file name to save a structure
     end
-    properties
-    end
+    %     properties
+    %     end
     methods % initialization methods
         function obj = scadStructure(varargin)
             %scadStructure -
-            file_name = '';
-            if ~isempty(varargin) && isa(varargin{1}, scadStructure)
+            obj.file_name = '';
+            if ~isempty(varargin) && isa(varargin{1}, 'scadStructure')
                 obj.structure = varargin{1}.structure;
                 varargin(1) = [];
             else
@@ -19,7 +19,8 @@ classdef scadStructure
             while ~isempty(varargin)
                 switch lower(varargin{1})
                     case 'file_name'
-                        file_name = varargin{2};
+                        obj.file_name = varargin{2};
+                        
                     otherwise
                         error(['scadStructure: unknown parameter ' char(string(varargin{1}))]);
                 end
@@ -129,7 +130,7 @@ classdef scadStructure
         end
     end
     methods % files functions
-        function obj = Save(obj, varargin)
+        function [obj, nbytes, status] = Save(obj, varargin)
             varargin2 = {};
             while ~isempty(varargin)
                 switch lower(varargin{1})
@@ -143,12 +144,11 @@ classdef scadStructure
                 end
             end
             if isempty(obj.file_name)
-                 [file_name, path ]= uiputfile('*.scad', 'Save file as')
-                obj.file_name = [path file_name]
-                disp('Save')
-                disp(obj.file_name)
+                [file_name1, path ] = uiputfile('*.scad', 'Save file as');
+                obj.file_name = [path file_name1];
             end
-            [fileID, nbytes, status] = SaveSCAD(obj.file_name, obj, varargin2{:});
+            [nbytes, status] = SaveSCAD(obj.file_name, obj, varargin2{:});
+            return
         end
         function obj = SaveAs(obj, varargin)
             varargin2 = {};
@@ -169,10 +169,7 @@ classdef scadStructure
         end
         function obj = OpenGUI(obj, varargin)
             obj.Save();
-            disp('OpenGUI')
-            disp(obj.file_name)
             StartOpenSCAD(obj.file_name, varargin{:});
         end
     end
 end
-
