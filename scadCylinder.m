@@ -1,5 +1,5 @@
 function object = scadCylinder(h, d, varargin)
-% scadCylinder - Return string for OpenScad with cylinder discription
+% scadCylinder - Return scadStructure with cylinder discription
 % Parameters
 % h : height of the cylinder or cone
 % r  : radius of cylinder. r1 = r2 = r.
