@@ -1,6 +1,5 @@
 function parameter = GetParamFromFile(parameter_name, varargin)
-%UNTITLED11 Summary of this function goes here
-%   Detailed explanation goes here
+%GetParamFromFile - return pointed parameters from the file
 current_folder = erase(which('SetOpenSCAD'), 'SetOpenSCAD.m');
 file_name = [current_folder 'ParamitersOpenSCAD'];
 while ~isempty(varargin)
