@@ -1,4 +1,4 @@
-function rotate_result = scadRotate(object, varargin)
+function object = scadRotate(object, varargin)
 %scadrotate Summary of this function goes here
 %   Detailed explanation goes here
 if isvector(varargin{1}) && max(size(varargin{1})) == 3
@@ -12,7 +12,8 @@ elseif isvector(varargin{2}) && max(size(varargin{2})) == 3 && isvector(varargin
 else
 end
 rotate_result = ['rotate(' char(compose(formatSpec, rotation_params)) '){' newline];
-rotate_result = [rotate_result char(object) newline];
+rotate_result = [rotate_result char(object.structure) newline];
 rotate_result = ([rotate_result '}' ]);
+object.structure = rotate_result;
 end
 
