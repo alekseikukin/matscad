@@ -1,9 +1,8 @@
-function [fileID, nbytes, status] = SaveSCAD(file_name, structure, varargin)
-%SaveSCAD Summary of this function goes here
-%   Detailed explanation goes here
+function [fileID, nbytes, status] = SaveSCAD(file_name, object, varargin)
+%SaveSCAD - save structure in openSCAD file (*.scad)
 file_name = FileExtController(file_name, 'scad');
 fileID = fopen(file_name,'w');
-nbytes = fprintf(fileID,'%s \n', structure);
+nbytes = fwrite(fileID, object.structure);
 status = fclose(fileID);
 end
 
