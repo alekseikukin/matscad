@@ -35,7 +35,7 @@ end
 %% conver multiplicators to string
 formatSpec = '[ %d, %d, %d ]';
 multiplicators = compose(formatSpec, multiplicators);
-%% concantinate string
+%% concatenate string
 resize_result = ['resize(' char(multiplicators)  ...
     char(param) '){' newline];
 resize_result = [resize_result char(object.structure) newline];
