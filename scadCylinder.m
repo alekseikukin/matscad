@@ -1,4 +1,4 @@
-function cylinder = scadCylinder(h, d, varargin)
+function object = scadCylinder(h, d, varargin)
 % scadCylinder - Return string for OpenScad with cylinder discription
 % Parameters
 % h : height of the cylinder or cone
@@ -68,11 +68,14 @@ cylinder = (['cylinder(' size '1=' num2str(d) ', '...
     ', h=' num2str(h)...
     ', center='  boolean2string(center)...
     param ')' ';' ]);
+
+object = scadStructure();
+object.structure  = cylinder;
 if ~isempty(color)
-    cylinder = scadColor(color, cylinder);
+    object = scadColor(color, object);
 end
 if ~isempty(position)
-    cylinder =  scadTranslate(position, cylinder);
+    object =  scadTranslate(position, object);
 end
 
 end
