@@ -1,7 +1,6 @@
 function SetOpenSCAD(varargin)
 %SetOpenSCAD - set paramiters for correct work of OpenSCAD
 current_folder = erase(which('SetOpenSCAD'), 'SetOpenSCAD.m');
-
 fileID = fopen([current_folder 'ParamitersOpenSCAD'], 'w');
 A = fread(fileID);
 while ~isempty(varargin)
@@ -18,6 +17,5 @@ while ~isempty(varargin)
 end
 fwrite(fileID,A);
 fclose(fileID);
-
 end
 
