@@ -1,7 +1,8 @@
-function rotate_extrude = scadRotateExtrude(object, angles , varargin)
+function object = scadRotateExtrude(object, angles , varargin)
 %scadRotateExtrude -
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Parameters:
+% object - scadStructure
 % convexity : If the extrusion fails for a non-trival 2D shape, try setting
 % the convexity parameter (the default is not 10, but 10 is a "good" value
 % to try). See explanation further down.
@@ -36,7 +37,8 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 rotate_extrude = ['rotate_extrude( angle  = ' num2str(angles) '' param '){' newline];
-rotate_extrude = [rotate_extrude char(object) newline];
+rotate_extrude = [rotate_extrude char(object.structure) newline];
 rotate_extrude = ([rotate_extrude '}' ]);
+object.structure = rotate_extrude;
 end
 
