@@ -1,4 +1,4 @@
-function polygon = scadPolygon(points, varargin)
+function object = scadPolygon(points, varargin)
 %scadPolygon - Creates a multiple sided shape from a list of x,y
 %coordinates. A polygon is the most powerful 2D object. It can create
 %anything that circle and squares can, as well as much more. This includes
@@ -25,6 +25,7 @@ function polygon = scadPolygon(points, varargin)
 position = [];
 parameters = '';
 formatSpec = '[ %d, %d ],';
+path2SCAS = '';
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'paths'
@@ -47,6 +48,8 @@ while ~isempty(varargin)
             parameters =[parameters ', ' 'convexity = ' num2str(varargin{2})];
         case 'position'
             position = varargin{2};
+        case 'path2scad'
+            path2SCAS = varargin{2};
         otherwise
             error(['scadPolygon: unknown paramiter - ' varargin{1}])
     end
@@ -60,4 +63,10 @@ polygon = ['polygon(points = [' points ']'...
 if ~isempty(position)
     polygon =  scadTranslate(position, polygon);
 end
+if isempty(path2SCAS)
+    object = scadStructure('path', path2SCAS);
+else
+    object = scadStructure();
+end
+object.structure = polygon;
 end
