@@ -29,7 +29,7 @@ formatSpec = '[ %d, %d, %d ]';
 multiplicators = compose(formatSpec, multiplicators);
 %
 resize_result = ['resize(' char(multiplicators)  ...
-    char(param) ']){' newline];
+    char(param) '){' newline];
 resize_result = [resize_result char(object.structure) newline];
 resize_result = [resize_result '}' ];
 %
