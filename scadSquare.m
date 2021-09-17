@@ -1,4 +1,4 @@
-function square = scadSquare(size1, varargin)
+function object = scadSquare(size1, varargin)
 %scadSquare - Creates a square or rectangle in the first quadrant. When
 %center is true the square is centered on the origin. Argument names are
 %optional if given in the order shown here.
@@ -31,7 +31,9 @@ else
 end
 square = ['square(size = ' size1 ','...
     ' center =' boolean2string(center) ');' ];
+object = scadStructure();
+object.structure = square;
 if ~isempty(position)
-    square =  scadTranslate(position, square);
+    object =  scadTranslate(position, object);
 end
 end
