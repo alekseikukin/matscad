@@ -1,11 +1,7 @@
 function status = StartOpenSCAD(file_name, varargin)
-%STARTOPENSCAD Summary of this function goes here
-%   Detailed explanation goes here
-file_name = FileExtController(file_name, 'scad');
-fileID = fopen(file_name,'a');
-fclose(fileID);
-path_cd = cd;
-scadfolder = 'C:\Program Files\OpenSCAD\';
+%StartOpenSCAD - open GUI of openSCAD with selected file (only for viewing
+%structure,  not necessary for convertion structure in .stl and etc)
+scadfolder = GetParamFromFile('path');
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'scadfolder'
@@ -14,9 +10,16 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-% cd('C:\Program Files\OpenSCAD\');
-cmd = ['start "' scadfolder 'openscad.exe" ' '"' char(path_cd) '\' file_name '"'];
+file_name = FileExtController(file_name, 'scad');
+path_cd = cd;
+if ~contains(file_name, ':')
+    file_name = ['"' char(path_cd) '\' file_name '"'];
+else
+    file_name = ['"' file_name '"'];
+end
+fileID = fopen(file_name,'a');
+fclose(fileID);
+cmd = ['start "' scadfolder 'openscad.exe" ' file_name ];
 status = system(cmd);
-cd(path_cd);
 end
 
