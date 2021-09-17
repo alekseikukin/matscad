@@ -9,6 +9,7 @@ classdef scadStructure
     methods % initialization methods
         function obj = scadStructure(varargin)
             %scadStructure -
+            file_name = '';
             if ~isempty(varargin) && isa(varargin{1}, scadStructure)
                 obj.structure = varargin{1}.structure;
                 varargin(1) = [];
@@ -142,9 +143,12 @@ classdef scadStructure
                 end
             end
             if isempty(obj.file_name)
-                obj.file_name = uiputfile('*.scad', 'Save file as');
+                 [file_name, path ]= uiputfile('*.scad', 'Save file as')
+                obj.file_name = [path file_name]
+                disp('Save')
+                disp(obj.file_name)
             end
-            SaveSCAD(obj.file_name, obj, varargin2{:})
+            [fileID, nbytes, status] = SaveSCAD(obj.file_name, obj, varargin2{:});
         end
         function obj = SaveAs(obj, varargin)
             varargin2 = {};
@@ -161,10 +165,12 @@ classdef scadStructure
                         varargin(1:2) = [];
                 end
             end
-            SaveAsOpenSCAD(sa_file_name, varargin2{:})
+            SaveAsOpenSCAD(sa_file_name, varargin2{:});
         end
         function obj = OpenGUI(obj, varargin)
             obj.Save();
+            disp('OpenGUI')
+            disp(obj.file_name)
             StartOpenSCAD(obj.file_name, varargin{:});
         end
     end
