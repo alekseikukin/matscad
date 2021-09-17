@@ -1,10 +1,10 @@
-function linear_extrude = scadLinearExtrude(object, height, varargin)
+function object = scadLinearExtrude(object, height, varargin)
 %scadLinearExtrude -Linear Extrusion is a operation that takes a 2D object
 %as input and generates a 3D object as a result.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % parameters:
 % 
-% object - 2D object for extrudion
+% object - 2D scadStructure for extrudion
 % 
 % height - distance
 % 
@@ -56,7 +56,7 @@ end
 
 linear_extrude = ['linear_extrude(size = ' num2str(height) ...
     param '){' ];
-linear_extrude = [linear_extrude char(object) newline];
+linear_extrude = [linear_extrude char(object.structure) newline];
 linear_extrude = ([linear_extrude '}' ]);
 if ~isempty(position)
     linear_extrude =  scadTranslate(position, linear_extrude);
@@ -64,4 +64,5 @@ end
 if ~isempty(color)
     linear_extrude =  scadColor(color, linear_extrude);
 end
+object.structure = linear_extrude;
 end
