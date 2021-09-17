@@ -4,12 +4,13 @@ function difference_result = scadDifference(varargin)
 if isempty(varargin)
     error("scadDifference: There must be at least 2 components")
 else
-    difference_result = ['difference(){' newline];
+    difference_result = varargin{1};
+    difference_result.structure = ['difference(){' newline];
     while ~isempty(varargin)
-        difference_result = [difference_result varargin{1} newline];
+        difference_result.structure = [difference_result.structure varargin{1}.structure newline];
         varargin(1) = [];
     end
-    difference_result = [difference_result '}' ];
+    difference_result.structure = [difference_result '}' ];
 end
 end
 
