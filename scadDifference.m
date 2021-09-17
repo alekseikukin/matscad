@@ -7,7 +7,7 @@ else
     difference_result = varargin{1};
     difference_result.structure = ['difference(){' newline];
     while ~isempty(varargin)
-        difference_result.structure = [difference_result.structure varargin{1}.structure newline];
+        difference_result.structure = [char(difference_result.structure) char(varargin{1}.structure) newline];
         varargin(1) = [];
     end
     difference_result.structure = [difference_result '}' ];
