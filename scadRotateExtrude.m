@@ -21,6 +21,8 @@ function object = scadRotateExtrude(object, angles , varargin)
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 param = '';
+color = [];
+position = [];
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'convexity'
@@ -31,6 +33,10 @@ while ~isempty(varargin)
             param =[', $fs = ' num2str(varargin{2})];
         case 'fn'
             param =[', $fn = ' num2str(varargin{2})];
+                    case 'position'
+            position = varargin{2};
+        case 'color'
+            color = varargin{2};
         otherwise
             error(['scadRotateExtrude: unknown paramiter - ' varargin{1}])
     end
@@ -40,5 +46,11 @@ rotate_extrude = ['rotate_extrude( angle  = ' num2str(angles) '' param '){' newl
 rotate_extrude = [rotate_extrude char(object.structure) newline];
 rotate_extrude = ([rotate_extrude '}' ]);
 object.structure = rotate_extrude;
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
+if ~isempty(color)
+    object =  scadColor(color, object);
+end
 end
 
