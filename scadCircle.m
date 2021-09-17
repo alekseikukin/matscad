@@ -1,4 +1,4 @@
-function circle = scadCircle(size1, varargin)
+function object = scadCircle(size1, varargin)
 %scadcircle - Creates a circle at the origin. All parameters, except r,
 %must be named.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -62,4 +62,6 @@ circle = ['circle(' size_param ' = ' size1  paramiters ');' ];
 if ~isempty(position)
     circle =  scadTranslate(position, circle);
 end
+object = scadStructure();
+object.structure = circle;
 end
