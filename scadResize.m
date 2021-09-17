@@ -1,32 +1,45 @@
-function resize_result = scadResize(varargin)
-%scadresize Summary of this function goes here
-%   Detailed explanation goes here
-if max(size(varargin)) == 7
-    x = num2str_2(varargin{1});
-    y = num2str_2(varargin{2});
-    z = num2str_2(varargin{3});
-    auto_x = num2str_2(varargin{4});
-    auto_y = num2str_2(varargin{5});
-    auto_z = num2str_2(varargin{6});
-    
-    varargin(1:3) = [];
-elseif max(size(varargin)) == 3
-    x = num2str_2(varargin{1}(1));
-    y = num2str_2(varargin{1}(2));
-    z = num2str_2(varargin{1}(3));
-    auto_x = num2str_2(varargin{2}(1));
-    auto_y = num2str_2(varargin{2}(2));
-    auto_z = num2str_2(varargin{2}(3));
-    
-    varargin(1) = [];
-else
-end
-resize_result = ['resize([' x ','  y ','  z '],' ...
-    ' auto = [' auto_x ','  auto_y ','  auto_z  ']){' newline];
+function object = scadResize(multiplicators, object, varargin)
+%scadResize - 
+
+position = [];
+color = [];
+param = '';
 while ~isempty(varargin)
-    resize_result = [resize_result varargin{1} newline];
-    varargin(1) = [];
+    switch lower(varargin{1})
+        case 'position'
+            position = varargin{2};
+        case 'color'
+            color = varargin{2};
+        case 'auto'
+            auto1 =  varargin{2};
+            if max(size(auto1)) > 1
+                param = [', auto = [' strjoin(boolean2string(auto1), ', ') ']'];
+            elseif max(size(auto1)) == 3
+                param = [', auto = ' boolean2string(auto1)];
+            else
+                error(['scadResize: unknown parameter ' char(string(varargin{1}))])
+            end
+        otherwise
+            error('scadResize: "auto" must contain 1 or 3 parameters')
+    end
+    varargin(1:2) = [];
 end
+%
+formatSpec = '[ %d, %d, %d ]';
+multiplicators = compose(formatSpec, multiplicators);
+%
+resize_result = ['resize(' char(multiplicators)  ...
+    char(param) ']){' newline];
+resize_result = [resize_result char(object.structure) newline];
 resize_result = [resize_result '}' ];
+%
+object.structure  = resize_result;
+%
+if ~isempty(color)
+    object = scadColor(color, object);
+end
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
 end
 
