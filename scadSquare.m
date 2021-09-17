@@ -37,16 +37,16 @@ else
     size1 = ['[' char(strjoin(compose('%d', size1), ',')) ']'];
 end
 %
-square = ['square(size = ' size1 ','...
+parallelogram = ['square(size = ' size1 ','...
     ' center =' boolean2string(center) ');' ];
 object = scadStructure();
 %
-object.structure = square;
+object.structure = parallelogram;
 %
 if ~isempty(color)
     object = scadColor(color, object);
 end
 if ~isempty(position)
-    object =  scadTranslate(object, circle);
+    object =  scadTranslate(position, object);
 end
 end

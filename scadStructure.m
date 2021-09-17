@@ -65,6 +65,11 @@ classdef scadStructure < handle
             %Union - return union  of 2 objects
             obj = obj + obj2;
         end
+        function obj = horzcat(obj1,obj2)
+            %horzcat - add second structure in the end of first structure.
+            obj = obj1;
+            obj.structure = [obj.structure newline obj2.structure];
+        end
         
     end
     methods % transformations
@@ -102,7 +107,11 @@ classdef scadStructure < handle
     end
     methods % adding a structure
         function obj = Square(obj, size1, varargin)
-            obj = obj + scadSquare(size1, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadSquare(size1, varargin{:})];
+            else
+                obj = obj + scadSquare(size1, varargin{:});
+            end
         end
         function obj = Circle(obj, size1, varargin)
             obj = obj + scadCircle(size1, varargin{:});

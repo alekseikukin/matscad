@@ -5,13 +5,11 @@ function union_result = scadUnion(varargin)
 if isempty(varargin)
     error("scadunion: There must be at least 2 components")
 else
-    union_result = varargin{1};
-    union_result.structure = char(['union(){' newline]);
     while ~isempty(varargin)
-        union_result.structure = [char(union_result.structure) char(varargin{1}.structure) newline];
+        union_result = [union_result varargin{1}];
         varargin(1) = [];
     end
-    union_result.structure = char([union_result.structure '}']);
+    union_result.structure = char(['union(){' newline union_result.structure newline '}']);
 end
 end
 
