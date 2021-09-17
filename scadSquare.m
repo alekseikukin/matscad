@@ -4,12 +4,13 @@ function object = scadSquare(size1, varargin)
 %optional if given in the order shown here.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % parameters:
-% size
-% single value, square with both sides this length
+%
+% size - single value, square with both sides this length
 % 2 value array [x,y], rectangle with dimensions x and y
-% center
-% false (default), 1st (positive) quadrant, one corner at (0,0)
+%
+% center -  false (default), 1st (positive) quadrant, one corner at (0,0)
 % true, square is centered at (0,0)
+%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 center = true;
 position = [];
