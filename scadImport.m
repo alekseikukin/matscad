@@ -1,4 +1,4 @@
-function body = scadImport(file_name,varargin)
+function object = scadImport(file_name,varargin)
 %scadImport - Imports a file for use in the current OpenSCAD model. The
 %file extension is used to determine which type.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -31,18 +31,30 @@ function body = scadImport(file_name,varargin)
 % Optional.
 %
 param = '';
+position = [];
+color = [];
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'convexity'
             param = [param ', convexity = ' num2str( varargin{2})];
         case 'layer'
             param = [param ', layer = ' num2str( varargin{2})];
+        case 'position'
+            position = varargin{2};
+        case 'color'
+            color = varargin{2};
         otherwise
             error(['scadImport: unknown paramiter - ' varargin{1}])
     end
     varargin(1:2) = [];
 end
-
-body = ['import("' file_name '"' param ');'];
+object = scadStructure();
+object.structure = ['import("' char(file_name) '"' char(param) ');'];
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
+if ~isempty(color)
+    object =  scadColor(color, object);
+end
 end
 
