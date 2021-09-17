@@ -1,23 +1,33 @@
-function scale_result = scadScale(varargin)
-%scadscale Summary of this function goes here
-%   Detailed explanation goes here
-if max(size(varargin)) == 4
-    x = num2str_2(varargin{1});
-    y = num2str_2(varargin{2});
-    z = num2str_2(varargin{3});
-    varargin(1:3) = [];
-elseif max(size(varargin)) == 2
-    x = num2str_2(varargin{1}(1));
-    y = num2str_2(varargin{1}(2));
-    z = num2str_2(varargin{1}(3));
-    varargin(1) = [];
-else
-end
-scale_result = ['scale([' x ','  y ','  z ']){' newline];
+function object = scadScale(multiplicators, object, varargin)
+%scadScale - Scales its child elements using the specified vector.
+%
+position = [];
+color = [];
 while ~isempty(varargin)
-    scale_result = [scale_result varargin{1} newline];
-    varargin(1) = [];
+    switch lower(varargin{1})
+        case 'position'
+            position = varargin{2};
+        case 'color'
+            color = varargin{2};
+        otherwise
+            error(['scadScale: unknown parameter ' char(string(varargin{1}))])
+    end
+    varargin(1:2) = [];
 end
+%
+formatSpec = '[ %d, %d, %d ]';
+multiplicators = compose(formatSpec, multiplicators);
+%
+scale_result = ['scale (' char(multiplicators) '){' newline];
+scale_result = [scale_result char(object.structure) newline];
 scale_result = [scale_result '}' ];
+%
+object.structure  = scale_result;
+%
+if ~isempty(color)
+    object = scadColor(color, object);
 end
-
+if ~isempty(position)
+    object =  scadTranslate(position, object);
+end
+end
