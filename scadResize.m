@@ -5,12 +5,13 @@ function object = scadResize(multiplicators, object, varargin)
 % Parameters:
 % multiplicators - numerical array 1 x 3 of multiplicators [x, y, z]
 % object - scadStructure
-% 
+%
 
-
+%% default parameters
 position = [];
 color = [];
 param = '';
+%% get parameters from varargin
 while ~isempty(varargin)
     switch lower(varargin{1})
         case 'position'
@@ -31,17 +32,17 @@ while ~isempty(varargin)
     end
     varargin(1:2) = [];
 end
-%
+%% conver multiplicators to string
 formatSpec = '[ %d, %d, %d ]';
 multiplicators = compose(formatSpec, multiplicators);
-%
+%% concantinate string
 resize_result = ['resize(' char(multiplicators)  ...
     char(param) '){' newline];
 resize_result = [resize_result char(object.structure) newline];
 resize_result = [resize_result '}' ];
-%
+%% put data to structure
 object.structure  = resize_result;
-%
+%% change position and colot
 if ~isempty(color)
     object = scadColor(color, object);
 end
