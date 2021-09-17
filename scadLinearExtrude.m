@@ -58,11 +58,11 @@ linear_extrude = ['linear_extrude(size = ' num2str(height) ...
     param '){' ];
 linear_extrude = [linear_extrude char(object.structure) newline];
 linear_extrude = ([linear_extrude '}' ]);
+object.structure = linear_extrude;
 if ~isempty(position)
-    linear_extrude =  scadTranslate(position, linear_extrude);
+    object =  scadTranslate(position, object);
 end
 if ~isempty(color)
-    linear_extrude =  scadColor(color, linear_extrude);
+    object =  scadColor(color, object);
 end
-object.structure = linear_extrude;
 end
