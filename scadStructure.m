@@ -185,7 +185,11 @@ classdef scadStructure < handle
             end
             if isempty(obj.file_name)
                 [file_name1, path ] = uiputfile('*.scad', 'Save file as');
-                obj.file_name = [path file_name1];
+                if ~isempty(file_name1)
+                    obj.file_name = [path file_name1];
+                else
+                    error("file wasn't selected") 
+                end
             end
             [nbytes, status] = SaveSCAD(obj.file_name, obj, varargin2{:});
             return
