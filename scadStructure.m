@@ -30,22 +30,22 @@ classdef scadStructure < handle
     end
     methods % Boolean operations
         function obj = plus(obj1,obj2)
-            %plus
+            %plus - union objects
             obj = obj1;
             obj = scadUnion(obj, obj2);
         end
         function obj = minus(obj1,obj2)
-            %minus
+            %minus - exclude areas intersection areas from first object
             obj = obj1;
             obj = scadDifference(obj, obj2);
         end
         function obj = or(obj1,obj2)
-            %or
+            %or - union objects
             obj = obj1;
             obj = scadUnion(obj, obj2);
         end
         function obj = and(obj1,obj2)
-            %and
+            %and - return intersection area of objects
             obj = obj1;
             obj = scadIntersection(obj, obj2);
         end
@@ -62,7 +62,7 @@ classdef scadStructure < handle
             obj = obj & obj2;
         end
         function obj = Union(obj, obj2)
-            %Union - return union  of 2 objects
+            %Union - return union of objects
             obj = obj + obj2;
         end
         function obj = horzcat(obj1,obj2)
@@ -73,38 +73,55 @@ classdef scadStructure < handle
     end
     methods % transformations
         function obj = Projection(obj,varargin)
+            %Projection - Using the scadProjection function, you can create 2d
+            %drawings from 3d models. It works by
+            %projecting a 3D model to the (x,y) plane, with z at 0. If cut=true, only
+            %points with z=0 are considered (effectively cutting the object), with
+            %cut=false(the default), points above and below the plane are considered as
+            %well (creating a proper projection)
             obj = scadProjection(obj, varargin{:});
         end
         function obj = Rotate(obj, angles, varargin)
+            %Rotate - turn the object at an angle 
             obj = scadRotate(angles, obj, varargin{:});
         end
         function obj = Color(obj, color, varargin)
+            %Color - set colot of object (new color overwrite all previous)
             obj = scadColor(color, obj, varargin{:});
         end
         function obj = Translate(obj, points,  varargin)
+            %Translate - move object to new coordinates
             obj = scadTranslate(points, obj, varargin{:});
         end
         function obj = Mirror(obj, surface, varargin)
+            %Mirror - add mirror object
             obj = scadMirror(surface, obj, varargin{:});
         end
         function obj = Scale(obj, multiplicators, varargin)
+            %Scale - change size of object
             obj = scadScale(multiplicators, obj, varargin{:});
         end
         function obj = Resize(obj, multiplicators, varargin)
+            %Resize - change size of object
             obj = scadResize(multiplicators, obj, varargin{:});
         end
         function obj = Multmatrix(obj, points, varargin)
             obj = scadMultmatrix(points, obj, varargin{:});
         end
         function obj = RotateExtrude(obj, angles, varargin)
+            %RotateExtrude - Rotational extrusion spins a 2D shape around
+            %the Z-axis to form a solid which has rotational symmetry
             obj = scadRotateExtrude(angles, obj, varargin{:});
         end
         function obj = LinearExtrude(obj, height, varargin)
+            %LinearExtrude - Linear Extrusion is a operation that takes a
+            %2D object as input and generates a 3D object as a result
             obj = scadLinearExtrude(height, obj, varargin{:});
-        end        
+        end
     end
     methods % adding a structure
         function obj = Square(obj, size1, varargin)
+            
             if isempty(obj.structure)
                 obj = [obj scadSquare(size1, varargin{:})];
             else
@@ -187,7 +204,7 @@ classdef scadStructure < handle
                 if ~isempty(file_name1)
                     obj.file_name = [path file_name1];
                 else
-                    error("file wasn't selected") 
+                    error("file wasn't selected")
                 end
             end
             [nbytes, status] = SaveSCAD(obj.file_name, obj, varargin2{:});
