@@ -3,6 +3,7 @@ classdef scadStructure < handle
     properties (Access = public,Dependent = false)
         structure % string with descriprion of structure in openSCAD
         file_name % file name to save a structure
+        autosave % save file with structure in scad file after each operation
     end
     %     properties
     %     end
@@ -20,7 +21,8 @@ classdef scadStructure < handle
                 switch lower(varargin{1})
                     case 'file_name'
                         obj.file_name = varargin{2};
-                        
+                    case 'autosave'
+                        obj.autosave = varargin{2};
                     otherwise
                         error(['scadStructure: unknown parameter ' char(string(varargin{1}))]);
                 end
@@ -82,7 +84,7 @@ classdef scadStructure < handle
             obj = scadProjection(obj, varargin{:});
         end
         function obj = Rotate(obj, angles, varargin)
-            %Rotate - turn the object at an angle 
+            %Rotate - turn the object at an angle
             obj = scadRotate(angles, obj, varargin{:});
         end
         function obj = Color(obj, color, varargin)
@@ -121,7 +123,7 @@ classdef scadStructure < handle
     end
     methods % adding a structure
         function obj = Square(obj, size1, varargin)
-            
+            %Square - Creates a square or rectangle in the first quadrant
             if isempty(obj.structure)
                 obj = [obj scadSquare(size1, varargin{:})];
             else
@@ -129,6 +131,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Circle(obj, size1, varargin)
+            %Circle - Creates a circle at the origin
             if isempty(obj.structure)
                 obj = [obj scadCircle(size1, varargin{:})];
             else
@@ -136,6 +139,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Import(obj, file_name, varargin)
+            %Import - Imports a file for use in the current OpenSCAD model
             if isempty(obj.structure)
                 obj = [obj scadImport(file_name, varargin{:})];
             else
@@ -143,6 +147,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Cylinder(obj, h, d, varargin)
+            %Cylinder - Return scadStructure with cylinder
             if isempty(obj.structure)
                 obj = [obj scadCylinder(h, d, varargin{:})];
             else
@@ -150,6 +155,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Sphere(obj, diam, varargin)
+            %Sphere - Creates a sphere
             if isempty(obj.structure)
                 obj = [obj scadSphere(diam, varargin{:})];
             else
@@ -157,6 +163,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Rect(obj, xyz_span, varargin)
+            %Rect - create rectangle
             if isempty(obj.structure)
                 obj = [obj scadRect(xyz_span, varargin{:})];
             else
@@ -164,6 +171,8 @@ classdef scadStructure < handle
             end
         end
         function obj = Polygon(obj, points, varargin)
+            %Polygon - Creates a multiple sided shape from a list of x,y
+            %coordinates
             if isempty(obj.structure)
                 obj = [obj scadPolygon(points, varargin{:})];
             else
@@ -171,6 +180,7 @@ classdef scadStructure < handle
             end
         end
         function obj = Text(obj, text1, varargin)
+            %Text - The text module creates text as a 2D geometric object
             if isempty(obj.structure)
                 obj = [obj scadText(text1, varargin{:})];
             else
@@ -178,6 +188,8 @@ classdef scadStructure < handle
             end
         end
         function obj = Polyhedron(obj, points, faces, varargin)
+            %Polyhedron - can be used to create any regular or irregular
+            %shape
             if isempty(obj.structure)
                 obj = [obj scadPolyhedron(points, faces, varargin{:})];
             else
@@ -187,6 +199,7 @@ classdef scadStructure < handle
     end
     methods % files functions
         function [obj, nbytes, status] = Save(obj, varargin)
+            %Save - save structure to *.scad file
             varargin2 = {};
             while ~isempty(varargin)
                 switch lower(varargin{1})
