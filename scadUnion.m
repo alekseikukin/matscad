@@ -5,6 +5,8 @@ function union_result = scadUnion(varargin)
 if isempty(varargin)
     error("scadunion: There must be at least 2 components")
 else
+    union_result = varargin{1};
+    varargin(1) = [];
     while ~isempty(varargin)
         union_result = [union_result varargin{1}];
         varargin(1) = [];
