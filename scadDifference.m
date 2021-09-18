@@ -3,15 +3,14 @@ function difference_result = scadDifference(varargin)
 %first one (logical and not).
  
 if isempty(varargin)
-    error("scadDifference: There must be at least 2 components")
+    error("scadunion: There must be at least 2 components")
 else
     difference_result = varargin{1};
-    difference_result.structure = ['difference(){' newline];
+    varargin(1) = [];
     while ~isempty(varargin)
-        difference_result.structure = [char(difference_result.structure) char(varargin{1}.structure) newline];
+        difference_result = [difference_result varargin{1}];
         varargin(1) = [];
     end
-    difference_result.structure = [difference_result '}' ];
+    difference_result.structure = char(['difference(){' newline difference_result.structure newline '}']);
 end
 end
-
