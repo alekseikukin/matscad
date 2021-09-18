@@ -59,7 +59,7 @@ classdef scadStructure < handle
         end
         function obj = Intersection(obj, obj2)
             %Intersection - return intersected area of 2 objects
-            obj = obj && obj2;
+            obj = obj & obj2;
         end
         function obj = Union(obj, obj2)
             %Union - return union  of 2 objects
@@ -70,7 +70,6 @@ classdef scadStructure < handle
             obj = obj1;
             obj.structure = [obj.structure newline obj2.structure];
         end
-        
     end
     methods % transformations
         function obj = Projection(obj,varargin)
