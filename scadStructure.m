@@ -36,7 +36,11 @@ classdef scadStructure < handle
         function obj = plus(obj1,obj2)
             %plus - union objects
             obj = obj1;
-            obj = scadUnion(obj, obj2);
+            if isempty(obj.structure)
+                obj = [obj obj2];
+            else
+                obj = scadUnion(obj, obj2);
+            end
             obj.AutoSave();
         end
         function obj = minus(obj1,obj2)
@@ -144,86 +148,41 @@ classdef scadStructure < handle
     methods % adding a structure
         function obj = Square(obj, size1, varargin)
             %Square - Creates a square or rectangle in the first quadrant
-            if isempty(obj.structure)
-                obj = [obj scadSquare(size1, varargin{:})];
-            else
-                obj = obj + scadSquare(size1, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadSquare(size1, varargin{:});
         end
         function obj = Circle(obj, size1, varargin)
             %Circle - Creates a circle at the origin
-            if isempty(obj.structure)
-                obj = [obj scadCircle(size1, varargin{:})];
-            else
-                obj = obj + scadCircle(size1, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadCircle(size1, varargin{:});
         end
         function obj = Import(obj, file_name, varargin)
             %Import - Imports a file for use in the current OpenSCAD model
-            if isempty(obj.structure)
-                obj = [obj scadImport(file_name, varargin{:})];
-            else
-                obj = obj + scadImport(file_name, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadImport(file_name, varargin{:});
         end
         function obj = Cylinder(obj, h, d, varargin)
             %Cylinder - Return scadStructure with cylinder
-            if isempty(obj.structure)
-                obj = [obj scadCylinder(h, d, varargin{:})];
-            else
-                obj = obj + scadCylinder(h, d, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadCylinder(h, d, varargin{:});
         end
         function obj = Sphere(obj, diam, varargin)
             %Sphere - Creates a sphere
-            if isempty(obj.structure)
-                obj = [obj scadSphere(diam, varargin{:})];
-            else
-                obj = obj + scadSphere(diam, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadSphere(diam, varargin{:});
         end
         function obj = Rect(obj, xyz_span, varargin)
             %Rect - create rectangle
-            if isempty(obj.structure)
-                obj = [obj scadRect(xyz_span, varargin{:})];
-            else
-                obj = obj + scadRect(xyz_span, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadRect(xyz_span, varargin{:});
         end
         function obj = Polygon(obj, points, varargin)
             %Polygon - Creates a multiple sided shape from a list of x,y
             %coordinates
-            if isempty(obj.structure)
-                obj = [obj scadPolygon(points, varargin{:})];
-            else
-                obj = obj + scadPolygon(points, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadPolygon(points, varargin{:});
         end
         function obj = Text(obj, text1, varargin)
             %Text - The text module creates text as a 2D geometric object
-            if isempty(obj.structure)
-                obj = [obj scadText(text1, varargin{:})];
-            else
-                obj = obj + scadText(text1, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadText(text1, varargin{:});
         end
         function obj = Polyhedron(obj, points, faces, varargin)
             %Polyhedron - can be used to create any regular or irregular
             %shape
-            if isempty(obj.structure)
-                obj = [obj scadPolyhedron(points, faces, varargin{:})];
-            else
-                obj = obj + scadPolyhedron(points, faces, varargin{:});
-            end
-            obj.AutoSave();
+            obj = obj + scadPolyhedron(points, faces, varargin{:});
         end
     end
     methods % files functions
