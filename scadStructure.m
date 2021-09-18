@@ -102,8 +102,7 @@ classdef scadStructure < handle
         end
         function obj = LinearExtrude(obj, height, varargin)
             obj = scadLinearExtrude(height, obj, varargin{:});
-        end
-        
+        end        
     end
     methods % adding a structure
         function obj = Square(obj, size1, varargin)
@@ -114,28 +113,60 @@ classdef scadStructure < handle
             end
         end
         function obj = Circle(obj, size1, varargin)
-            obj = obj + scadCircle(size1, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadCircle(size1, varargin{:})];
+            else
+                obj = obj + scadCircle(size1, varargin{:});
+            end
         end
         function obj = Import(obj, file_name, varargin)
-            obj = obj + scadImport(file_name, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadImport(file_name, varargin{:})];
+            else
+                obj = obj + scadImport(file_name, varargin{:});
+            end
         end
         function obj = Cylinder(obj, h, d, varargin)
-            obj = obj + scadCylinder(h, d, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadCylinder(h, d, varargin{:})];
+            else
+                obj = obj + scadCylinder(h, d, varargin{:});
+            end
         end
         function obj = Sphere(obj, diam, varargin)
-            obj = obj + scadSphere(diam, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadSphere(diam, varargin{:})];
+            else
+                obj = obj + scadSphere(diam, varargin{:});
+            end
         end
         function obj = Rect(obj, xyz_span, varargin)
-            obj = obj + scadRect(xyz_span, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadRect(xyz_span, varargin{:})];
+            else
+                obj = obj + scadRect(xyz_span, varargin{:});
+            end
         end
         function obj = Polygon(obj, points, varargin)
-            obj = obj + scadPolygon(points, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadPolygon(points, varargin{:})];
+            else
+                obj = obj + scadPolygon(points, varargin{:});
+            end
         end
         function obj = Text(obj, text1, varargin)
-            obj = obj + scadText(text1, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadText(text1, varargin{:})];
+            else
+                obj = obj + scadText(text1, varargin{:});
+            end
         end
         function obj = Polyhedron(obj, points, faces, varargin)
-            obj = obj + scadPolyhedron(points, faces, varargin{:});
+            if isempty(obj.structure)
+                obj = [obj scadPolyhedron(points, faces, varargin{:})];
+            else
+                obj = obj + scadPolyhedron(points, faces, varargin{:});
+            end
         end
     end
     methods % files functions
