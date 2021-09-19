@@ -12,7 +12,7 @@ Toolbox for simple design of 3D objects and import them in a CAD files.
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/V7V664FUA)
 [![View MatSCAD on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/99534-matscad)
-
+![GitHub issues](https://img.shields.io/github/issues/alekseikukin/matscad)
 ## Usage
 1. Instal [openSCAD](https://openscad.org/)
 2. If it was installed in 'C:\Program Files\OpenSCAD\' than go to next step, if it was installed in another folder, use [SetOpenSCAD('path', "real folder of openSCAD")](set_openscad_folder.m). SetOpenSCAD() need to be started 1 time to point new folder.
