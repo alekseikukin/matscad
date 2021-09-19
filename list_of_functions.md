@@ -1,4 +1,6 @@
-[scadStructure](scadStructure.m) - 
+#List of functions
+
+[scadStructure](scadStructure.m) - class that contain description of structure as [openSCAD](https://openscad.org/) code.
 
 [FileExtController](FileExtController.m) -  check that end sumbols of file name or folder string arecorrect and change it if it isn't correct.
 
