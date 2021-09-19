@@ -2,7 +2,7 @@ function object = scadMirror(surface, object, varargin)
 %scadMirror - Mirrors the child element on a plane through the origin. The
 %argument to mirror() is the normal vector of a plane intersecting the
 %origin through which to mirror the object.
-%
+%%%
 % surface  - mirror's surface (numerical vector 1 x 3 [x, y, z])
 % 
 % object - scadStructure

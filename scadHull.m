@@ -1,5 +1,6 @@
 function object = scadHull(array_of_objects, varargin)
 %scadHull  - return the convex hull of objects.
+%%
 position = [];
 color = [];
 while ~isempty(varargin)

@@ -1,7 +1,7 @@
 function union_result = scadUnion(varargin)
 %scadUnion -  Creates a union of all its child nodes. This is the sum of
 %all children (logical or).
-
+%%
 if isempty(varargin)
     error("scadunion: There must be at least 2 components")
 else

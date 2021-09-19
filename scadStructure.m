@@ -1,12 +1,11 @@
 classdef scadStructure < handle
     %scadStructure
+    %%
     properties (Access = public,Dependent = false)
         structure % string with descriprion of structure in openSCAD
         file_name % file name to save a structure
         autosave % save file with structure in scad file after each operation
     end
-    %     properties
-    %     end
     methods % initialization methods
         function obj = scadStructure(varargin)
             %scadStructure -

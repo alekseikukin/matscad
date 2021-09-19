@@ -1,5 +1,6 @@
 function object = scadRect(xyz_span, varargin)
 %scadRect - create rectangle with edges [x, y, z] = xyz_span;
+%%
 position = [];
 color = [];
 while ~isempty(varargin)

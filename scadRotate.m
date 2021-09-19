@@ -1,6 +1,7 @@
 function object = scadRotate(angles, object, varargin)
 %scadRotate  - Rotates its child 'a' degrees about the axis of the
 %coordinate system or around an arbitrary axis.
+%%
 param = '';
 formatSpec = '[ %d, %d, %d ]';
 while ~isempty(varargin)

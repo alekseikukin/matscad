@@ -1,7 +1,8 @@
 function difference_result = scadDifference(varargin)
 %scadDifference  - Subtracts the 2nd (and all further) child nodes from the
 %first one (logical and not).
- 
+ %%
+
 if isempty(varargin)
     error("scadunion: There must be at least 2 components")
 else

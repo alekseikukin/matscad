@@ -1,5 +1,6 @@
 function object = scadSphere(diam, varargin)
 %scadSphere - Creates a sphere at the origin of the coordinate system.
+%%
 %Parameters
 % r Radius. This is the radius of the sphere. The resolution of the sphere
 % is based on the size of the sphere and the $fa, $fs and $fn variables.

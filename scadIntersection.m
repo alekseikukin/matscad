@@ -1,7 +1,7 @@
 function intersection_result = scadIntersection(varargin)
 %scadIntersection - Creates the intersection of all child nodes. This keeps
 %the overlapping portion (logical and).
-
+%%
 if isempty(varargin)
     error("scadintersection: There must be at least 2 components")
 else

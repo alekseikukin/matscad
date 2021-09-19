@@ -1,5 +1,6 @@
 function object = scadMinkowski(array_of_objects, varargin)
 %scadMinkowski - Displays the minkowski sum of objects
+%%
 position = [];
 color = [];
 while ~isempty(varargin)

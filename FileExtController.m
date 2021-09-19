@@ -1,6 +1,7 @@
 function file_name = FileExtController(file_name, correct_end, varargin)
 %FileExtController check that end sumbols of file name or folder string are
 %correct and change it if it isn't correct.
+%%
 if ~isempty(file_name)
     if size(correct_end) == 1
         if string(file_name(end)) == string(correct_end)

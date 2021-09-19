@@ -3,7 +3,7 @@ function object = scadPolyhedron(points, faces, varargin)
 % can be used to create any regular or irregular shape including those with
 % concave as well as convex features. Curved surfaces are approximated by a
 % series of flat surfaces.
-%
+%%%
 % Parameters
 %
 % points Vector of 3d points or vertices. Each point is in turn a vector,

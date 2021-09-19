@@ -1,6 +1,8 @@
 function status = StartOpenSCAD(file_name, varargin)
 %StartOpenSCAD - open GUI of openSCAD with selected file (only for viewing
 %structure,  not necessary for convertion structure in .stl and etc)
+%%
+
 scadfolder = GetParamFromFile('path');
 while ~isempty(varargin)
     switch lower(varargin{1})
