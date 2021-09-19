@@ -1,7 +1,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/alekseikukin/matscad">
-    <img src="images/pic.png" alt="Logo" width="80" height="80">
+    <img src="images/pic.png" alt="Logo" width="324" height="228">
   </a>
   <h1 align="center">MatSCAD
 </h1>
