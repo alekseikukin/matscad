@@ -11,7 +11,7 @@ Toolbox for simple design of 3D objects and import them in a CAD files.
 </p>
 
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/alekseikukin/matscad)
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg =149x20)](https://ko-fi.com/V7V664FUA)
+[![ko-fi](https://uploads-ssl.webflow.com/5c14e387dab576fe667689cf/5cbed8a4cf61eceb26012821_SupportMe_red-p-500.png =118x20)](https://ko-fi.com/V7V664FUA)
 [![View MatSCAD on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://www.mathworks.com/matlabcentral/fileexchange/99534-matscad)
 ![GitHub issues](https://img.shields.io/github/issues/alekseikukin/matscad)
 ## Usage
