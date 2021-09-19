@@ -6,7 +6,7 @@
   <h1 align="center">MatSCAD
 </h1>
     <p align="center">
-Toolbox for simple design of 3D objects and impotr them in a CAD files.
+Toolbox for simple design of 3D objects and import them in a CAD files.
   </p>
 </p>
 
