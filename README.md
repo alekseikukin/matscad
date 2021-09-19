@@ -13,7 +13,7 @@ Can be used for
 
 ## Usage
 1. Instal [openSCAD](https://openscad.org/)
-2. If it was installed in 'C:\Program Files\OpenSCAD\' than go to next step, if it was installed in another folder, than use SetOpenSCAD('path', "real folder of openSCAD"). SetOpenSCAD() need to be started 1 time to point new folder.
+2. If it was installed in 'C:\Program Files\OpenSCAD\' than go to next step, if it was installed in another folder, use SetOpenSCAD('path', "real folder of openSCAD"). SetOpenSCAD() need to be started 1 time to point new folder.
 3. Write a code.
 See the [example](example.m) .
 
