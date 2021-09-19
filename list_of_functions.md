@@ -1,20 +1,14 @@
 # List of functions
 
+## Functions for design
+
 [scadStructure](scadStructure.m) - class that contain description of structure as [openSCAD](https://openscad.org/) code.
-
-[FileExtController](FileExtController.m) -  check that end sumbols of file name or folder string arecorrect and change it if it isn't correct.
-
-[GetParamFromFile](GetParamFromFile.m) - return pointed parameters from the file
 
 [SaveAsOpenSCAD, scadStructure.SaveAs](SaveAsOpenSCAD.m) -  output specified file instead of running the GUI, thefile extension specifies the type: stl, off, amf, 3mf, csg, dxf, svg, png,echo, ast, term, nef3, nefdbg
 
 [SaveSCAD, scadStructure.Save](SaveSCAD.m) -  save structure in openSCAD file (*.scad)
 
 [StartOpenSCAD scadStructure.OpenGUI](StartOpenSCAD.m) - open GUI of openSCAD with selected file (only for viewingstructure,  not necessary for convertion structure in .stl and etc)
-
-[boolean2string](boolean2string.m) - convert boolean to string.
-
-[cmdOpenSCAD](cmdOpenSCAD.m) -  send a comand to openSCADsee list of comands here:  https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment
 
 [scadCircle, scadStructure.Circle](scadCircle.m) - Creates a circle at the origin. All parameters, except r,must be named.
 
@@ -63,3 +57,13 @@
 [scadTranslate, scadStructure.Translate](scadTranslate.m) - move object to point [x, y, z] = points
 
 [scadUnion, scadStructure.Union](scadUnion.m) - Creates a union of all its child nodes. This is the sum ofall children (logical or).
+
+## Secondary functions
+
+[boolean2string](boolean2string.m) - convert boolean to string.
+
+[FileExtController](FileExtController.m) -  check that end sumbols of file name or folder string arecorrect and change it if it isn't correct.
+
+[GetParamFromFile](GetParamFromFile.m) - return pointed parameters from the file
+
+[cmdOpenSCAD](cmdOpenSCAD.m) -  send a comand to openSCADsee list of comands here:  https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment
