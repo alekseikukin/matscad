@@ -54,7 +54,7 @@ while ~isempty(varargin)
     varargin(1:2) = [];
 end
 
-linear_extrude = ['linear_extrude(size = ' num2str(height) ...
+linear_extrude = ['linear_extrude(height = ' num2str(height) ...
     param '){' ];
 linear_extrude = [linear_extrude char(object.structure) newline];
 linear_extrude = ([linear_extrude '}' ]);
