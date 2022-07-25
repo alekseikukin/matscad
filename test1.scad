@@ -11,7 +11,7 @@ translate([ 0, 0, 25 ]){
 sphere(d=50);
 }
 }
-color("greed"){
+color("green"){
 translate([ 0, 0, 12 ]){
 cube([ 30, 40, 25 ]);
 }
@@ -19,7 +19,7 @@ cube([ 30, 40, 25 ]);
 }
 color("blue"){
 translate([ -30, -40, 0 ]){
-color("greed"){
+color("green"){
 translate([ 0, 0, 12 ]){
 cube([ 30, 40, 25 ]);
 }

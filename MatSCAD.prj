@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration file="G:\My Drive\matlab_prog\openscad\MatSCAD.prj" location="G:\My Drive\matlab_prog\openscad" name="MatSCAD" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="3464192428" file="G:\My Drive\matlab_prog\openscad\MatSCAD.prj" location="G:\My Drive\matlab_prog\openscad" name="MatSCAD" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>MatSCAD</param.appname>
     <param.authnamewatermark>Aleksei Kukin</param.authnamewatermark>
     <param.email />
@@ -19,11 +19,6 @@
     <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
 &lt;examples&gt;
    &lt;exampleCategory name="openscad"&gt;
-      &lt;example name="example" type="html"&gt;
-         &lt;file type="source"&gt;/html/example.html&lt;/file&gt;
-         &lt;file type="main"&gt;/example.m&lt;/file&gt;
-         &lt;file type="thumbnail"/&gt;
-      &lt;/example&gt;
       &lt;example name="example2" type="html"&gt;
          &lt;file type="source"&gt;/html/example2.html&lt;/file&gt;
          &lt;file type="main"&gt;/example2.m&lt;/file&gt;

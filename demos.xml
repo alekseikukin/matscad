@@ -8,12 +8,6 @@
    <demosection>
       <label>openscad</label>
       <demoitem>
-         <label>example</label>
-         <type>other</type>
-         <source>example</source>
-         <file>html/example.html</file>
-      </demoitem>
-      <demoitem>
          <label>example2</label>
          <type>other</type>
          <source>example2</source>

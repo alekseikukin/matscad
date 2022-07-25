@@ -4,7 +4,7 @@ test1.OpenGUI();
 test1.Color('red');
 test1.Sphere(50, 'position', [0,0,25]);
 test2 = scadRect([30,40,25], 'position', [0, 0, 12]);
-test2.Color('greed');
+test2.Color('green');
 test1 = test1 - test2;
 test2.Translate([-30,-40,0]);
 test2.Color('blue');
