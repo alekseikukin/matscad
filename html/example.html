@@ -6,7 +6,7 @@
    <!--
 This HTML was auto-generated from MATLAB code.
 To make changes, update the MATLAB code and republish this document.
-      --><title>example</title><meta name="generator" content="MATLAB 9.10"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2021-09-20"><meta name="DC.source" content="example.m"><style type="text/css">
+      --><title>example</title><meta name="generator" content="MATLAB 9.12"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2022-07-25"><meta name="DC.source" content="example.m"><style type="text/css">
 html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
 
 html { min-height:100%; margin-bottom:1px; }
@@ -91,20 +91,18 @@ test_structure2 = scadStructure(<span class="string">'file_name'</span>, <span c
 <span class="keyword">end</span>
 test_structure = test_structure - test_structure2;
 test_structure.SaveAs(); <span class="comment">% saving structure as stl, it's possible choose another file format</span>
-</pre><pre class="codeoutput">Geometries in cache: 102 
-Geometry cache size in bytes: 1606696 
-CGAL Polyhedrons in cache: 2 
-CGAL cache size in bytes: 19553352 
-Total rendering time: 0:01:04.430 
-   Top level object is a 3D object: 
-   Simple:        yes 
-   Vertices:     3463 
-   Halfedges:   15022 
-   Edges:        7511 
-   Halffacets:   8114 
-   Facets:       4057 
-   Volumes:         3 
-</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2021a</a><br></p></div><!--
+</pre><pre class="codeoutput error">File: G:\My Drive\matlab_prog\openscad\cmdOpenSCAD.m Line: 3 Column: 1
+Invalid use of operator.
+
+Error in SaveAsOpenSCAD (line 27)
+status = cmdOpenSCAD(cmd, extra_params{:});
+
+Error in scadStructure/SaveAs (line 229)
+            SaveAsOpenSCAD(sa_file_name, varargin2{:});
+
+Error in example (line 24)
+test_structure.SaveAs(); % saving structure as stl, it's possible choose another file format
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2022a</a><br></p></div><!--
 ##### SOURCE BEGIN #####
 %%%%%%%%%%%%%%%% generate stl file with cheese inside.%%%%%%%%%%%%%%%%%%%%%
 clear;

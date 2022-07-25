@@ -7,7 +7,7 @@
     <param.summary>Toolbox for simple design of 3D objects and import them in a CAD files.</param.summary>
     <param.description>Toolbox for simple design of 3D objects and import them in a CAD files.</param.description>
     <param.screenshot>${PROJECT_ROOT}\images\pic.png</param.screenshot>
-    <param.version>1.0</param.version>
+    <param.version>1.01</param.version>
     <param.output>${PROJECT_ROOT}\MatSCAD.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -16,7 +16,21 @@
     <param.guid>0f951d00-1700-4bd0-ae3d-f3c658af1774</param.guid>
     <param.exclude.filters />
     <param.exclude.pcodedmfiles>true</param.exclude.pcodedmfiles>
-    <param.examples />
+    <param.examples>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;examples&gt;
+   &lt;exampleCategory name="openscad"&gt;
+      &lt;example name="example" type="html"&gt;
+         &lt;file type="source"&gt;/html/example.html&lt;/file&gt;
+         &lt;file type="main"&gt;/example.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+      &lt;example name="example2" type="html"&gt;
+         &lt;file type="source"&gt;/html/example2.html&lt;/file&gt;
+         &lt;file type="main"&gt;/example2.m&lt;/file&gt;
+         &lt;file type="thumbnail"/&gt;
+      &lt;/example&gt;
+   &lt;/exampleCategory&gt;
+&lt;/examples&gt;</param.examples>
     <param.demosxml />
     <param.apps />
     <param.registered.apps />
@@ -44,7 +58,6 @@
     <unset>
       <param.email />
       <param.company />
-      <param.version />
       <param.output />
       <param.products.name />
       <param.products.id />
@@ -52,7 +65,6 @@
       <param.platforms />
       <param.exclude.filters />
       <param.exclude.pcodedmfiles />
-      <param.examples />
       <param.demosxml />
       <param.apps />
       <param.registered.apps />
@@ -87,8 +99,9 @@
       <file>${PROJECT_ROOT}\boolean2string.m</file>
       <file>${PROJECT_ROOT}\bubbles.scad</file>
       <file>${PROJECT_ROOT}\cheese.scad</file>
+      <file>${PROJECT_ROOT}\cheese.stl</file>
       <file>${PROJECT_ROOT}\cmdOpenSCAD.m</file>
-      <file>${PROJECT_ROOT}\example.asv</file>
+      <file>${PROJECT_ROOT}\demos.xml</file>
       <file>${PROJECT_ROOT}\example.m</file>
       <file>${PROJECT_ROOT}\example2.m</file>
       <file>${PROJECT_ROOT}\example3.scad</file>
@@ -98,7 +111,6 @@
       <file>${PROJECT_ROOT}\html</file>
       <file>${PROJECT_ROOT}\images</file>
       <file>${PROJECT_ROOT}\LICENSE</file>
-      <file>${PROJECT_ROOT}\list_of_functions.asv</file>
       <file>${PROJECT_ROOT}\list_of_functions.md</file>
       <file>${PROJECT_ROOT}\ParamitersOpenSCAD</file>
       <file>${PROJECT_ROOT}\README.md</file>
@@ -132,6 +144,7 @@
       <file>${PROJECT_ROOT}\set_openscad_folder.m</file>
       <file>${PROJECT_ROOT}\SetOpenSCAD.m</file>
       <file>${PROJECT_ROOT}\StartOpenSCAD.m</file>
+      <file>${PROJECT_ROOT}\test1.scad</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
@@ -141,7 +154,7 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>F:\Program Files\MATLAB\R2021a</root>
+      <root>C:\Program Files\MATLAB\R2022a</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />

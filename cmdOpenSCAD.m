@@ -1,10 +1,6 @@
 function status = cmdOpenSCAD(comand, varargin)
-%cmdOpenSCAD  - send a comand to openSCAD
-<<<<<<< HEAD
-%see list of comands here:
-=======
-%see list of comands here: 
->>>>>>> parent of ea16d88 (cmdOpenSCAD was updated to support unix)
+% cmdOpenSCAD  - send a comand to openSCAD
+% see list of comands here:
 % https://en.wikibooks.org/wiki/OpenSCAD_User_Manual/Using_OpenSCAD_in_a_command_line_environment
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 scadfolder = GetParamFromFile('path');
