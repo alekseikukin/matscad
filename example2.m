@@ -13,3 +13,4 @@ test1.Translate([-30,-40,0]);
 test1.Mirror([1,0,0]);
 test1.Scale([3,1,1]);
 test1.Rotate(45);
+test1.SaveAs('file_name', 'example2')

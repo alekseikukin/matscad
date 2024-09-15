@@ -12,6 +12,8 @@ while ~isempty(varargin)
         case 'scadfolder'
             extra_params{end+1} = 'scadfolder';
             extra_params{end+1} = FileExtController(varargin{2}, "/");
+        case 'output_filename'
+            output_filename = varargin{2};
         case {'ofe','output_file_extention'}
             output_file_extention = varargin{2};
         otherwise

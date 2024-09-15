@@ -226,7 +226,10 @@ classdef scadStructure < handle
                         varargin(1:2) = [];
                 end
             end
-            SaveAsOpenSCAD(sa_file_name, varargin2{:});
+                        disp('sa_file_name')
+
+            disp(sa_file_name)
+            SaveAsOpenSCAD(obj.file_name, 'output_filename', sa_file_name, varargin2{:});
         end
         function obj = OpenGUI(obj, varargin)
             %OpenGUI - star GUI of openSCAD
