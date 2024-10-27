@@ -1,5 +1,5 @@
 <deployment-project plugin="plugin.toolbox" plugin-version="1.0">
-  <configuration build-checksum="1963233875" file="G:\My Drive\matlab_prog\openscad\MatSCAD.prj" location="G:\My Drive\matlab_prog\openscad" name="MatSCAD" target="target.toolbox" target-name="Package Toolbox">
+  <configuration build-checksum="3045234595" file="G:\My Drive\matlab_prog\openscad\MatSCAD.prj" location="G:\My Drive\matlab_prog\openscad" name="MatSCAD" target="target.toolbox" target-name="Package Toolbox">
     <param.appname>MatSCAD</param.appname>
     <param.authnamewatermark>Aleksei Kukin</param.authnamewatermark>
     <param.email />
@@ -7,7 +7,7 @@
     <param.summary>Toolbox for simple design of 3D objects and import them in a CAD files.</param.summary>
     <param.description>Toolbox for simple design of 3D objects and import them in a CAD files.</param.description>
     <param.screenshot>${PROJECT_ROOT}\images\pic.png</param.screenshot>
-    <param.version>1.02</param.version>
+    <param.version>1.03</param.version>
     <param.output>${PROJECT_ROOT}\MatSCAD.mltbx</param.output>
     <param.products.name />
     <param.products.id />
@@ -102,6 +102,7 @@
       <file>${PROJECT_ROOT}\example2.stl</file>
       <file>${PROJECT_ROOT}\example3.scad</file>
       <file>${PROJECT_ROOT}\example3.stl</file>
+      <file>${PROJECT_ROOT}\example_manifold.m</file>
       <file>${PROJECT_ROOT}\FileExtController.m</file>
       <file>${PROJECT_ROOT}\GetParamFromFile.m</file>
       <file>${PROJECT_ROOT}\html</file>
@@ -110,6 +111,7 @@
       <file>${PROJECT_ROOT}\list_of_functions.md</file>
       <file>${PROJECT_ROOT}\ParamitersOpenSCAD</file>
       <file>${PROJECT_ROOT}\README.md</file>
+      <file>${PROJECT_ROOT}\SaveAsOpenSCAD.asv</file>
       <file>${PROJECT_ROOT}\SaveAsOpenSCAD.m</file>
       <file>${PROJECT_ROOT}\SaveSCAD.m</file>
       <file>${PROJECT_ROOT}\scadCircle.m</file>
@@ -141,7 +143,6 @@
       <file>${PROJECT_ROOT}\SetOpenSCAD.m</file>
       <file>${PROJECT_ROOT}\StartOpenSCAD.m</file>
       <file>${PROJECT_ROOT}\test1.scad</file>
-      <file>${PROJECT_ROOT}\test1.stl</file>
     </fileset.rootfiles>
     <fileset.depfun.included />
     <fileset.depfun.excluded />
@@ -151,7 +152,7 @@
     </build-deliverables>
     <workflow />
     <matlab>
-      <root>C:\Program Files\MATLAB\R2024a</root>
+      <root>C:\Program Files\MATLAB\R2024b</root>
       <toolboxes>
         <toolbox name="matlabcoder" />
         <toolbox name="embeddedcoder" />
